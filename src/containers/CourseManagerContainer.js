@@ -1,6 +1,8 @@
 "use strict";
-import {Component} from "react";
+import React, {Component} from "react";
 import CourseServiceClient from "../services/CourseService";
+import CourseTableComponent from "../components/CourseTableComponent";
+import CourseNavComponent from "../components/CourseNavComponent";
 
 class CourseManagerContainer extends Component {
 
@@ -22,6 +24,15 @@ class CourseManagerContainer extends Component {
         this.courseServiceClient.findAllCourses().then((new_courses) => {
             this.state.courses = [...new_courses];
         });
+    }
+
+    render() {
+        return  (
+            <>
+                <CourseNavComponent/>
+                <CourseTableComponent/>
+            </>
+            );
     }
 
 }
