@@ -1,9 +1,8 @@
 "use strict";
-import React;
 import {Component} from "react";
 import CourseServiceClient from "../services/CourseService";
 
-class CourseManagerComponent extends Component {
+class CourseManagerContainer extends Component {
 
     state = {
         listView: 'table',
