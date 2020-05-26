@@ -6,10 +6,19 @@ import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {createStore} from "redux";
+import {connect, Provider} from "react-redux";
+import hello from "./reducers/HelloReducer";
+import HelloContainer from "./components/HelloComponent";
+
+const store = createStore(hello);
 
 ReactDOM.render(
   <React.StrictMode>
-    <WhiteBoard/>
+      <Provider store={store}>
+        <HelloContainer/>
+      </Provider>
+      {/*<HelloWorld messageProperty={"Hello World?"}/>*/}
   </React.StrictMode>,
   document.getElementById('root')
 );
