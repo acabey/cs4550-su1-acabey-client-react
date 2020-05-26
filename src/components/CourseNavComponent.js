@@ -1,6 +1,7 @@
 import React from "react";
-import { faList } from "@fortawesome/free-solid-svg-icons";
+import {faList, faPlus, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Link} from "react-router-dom";
 
 const CourseNavComponent = ({}) =>
     <nav className="navbar navbar-expand navbar-light bg-white justify-content-between fixed-top wbdv-navbar">
@@ -31,24 +32,25 @@ const CourseNavComponent = ({}) =>
                    aria-label="New Course"/>
 
             <div className="navbar-light navbar-nav">
-                <a href="#" className="nav-link fa fa-plus fa-2x wbdv-button wbdv-add-course"></a>
+                <a href="#" className="nav-link wbdv-button wbdv-add-course"><FontAwesomeIcon icon={faPlus} size={2}/></a>
             </div>
 
             <div className="nav-item navbar-light navbar-nav dropdown">
-                <a className="nav-link dropdown-toggle fa far fa-user-circle fa-2x"
+                <a className="nav-link dropdown-toggle"
                    href="#"
                    id="navbarDropdown"
                    role="button"
                    data-toggle="dropdown"
                    aria-haspopup="true"
                    aria-expanded="false">
+                    <FontAwesomeIcon icon={faUserCircle} size={2}/>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="/profile/profile.template.client.html">Profile</a>
-                    <a className="dropdown-item" href="/login/login.template.client.html">Login</a>
+                    <Link className="dropdown-item" to="/profile">Profile</Link>
+                    <Link className="dropdown-item" to="/login">Login</Link>
                 </div>
             </div>
         </div>
-    </nav>
+    </nav>;
 
 export default CourseNavComponent

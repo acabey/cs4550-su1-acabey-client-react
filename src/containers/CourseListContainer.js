@@ -3,6 +3,7 @@ import CourseTableComponent from "../components/CourseTableComponent";
 import {CourseGridComponent} from "../components/CourseGridComponent";
 import CourseServiceClient from "../services/CourseService";
 import CourseNavComponent from "../components/CourseNavComponent";
+import {Container} from "react-bootstrap";
 
 class CourseListContainer extends React.Component {
 
@@ -69,7 +70,7 @@ class CourseListContainer extends React.Component {
     render() {
 
         return(
-            <div>
+            <Container fluid={true}>
                 <CourseNavComponent/>
                 <h2>Course List {this.state.courses.length}</h2>
                 <input
@@ -107,7 +108,7 @@ class CourseListContainer extends React.Component {
                         <CourseGridComponent courses={this.state.courses}/>
                     </div>
                 }
-            </div>
+            </Container>
         )
     }
 }
