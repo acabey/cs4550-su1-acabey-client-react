@@ -1,4 +1,6 @@
 import React from "react";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CourseNavComponent = ({}) =>
     <nav className="navbar navbar-expand navbar-light bg-white justify-content-between fixed-top wbdv-navbar">

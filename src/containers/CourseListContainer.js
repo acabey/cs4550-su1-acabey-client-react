@@ -2,6 +2,7 @@ import React from "react";
 import CourseTableComponent from "../components/CourseTableComponent";
 import {CourseGridComponent} from "../components/CourseGridComponent";
 import CourseServiceClient from "../services/CourseService";
+import CourseNavComponent from "../components/CourseNavComponent";
 
 class CourseListContainer extends React.Component {
 
@@ -69,6 +70,7 @@ class CourseListContainer extends React.Component {
 
         return(
             <div>
+                <CourseNavComponent/>
                 <h2>Course List {this.state.courses.length}</h2>
                 <input
                     onChange={(event) => this.setState({
