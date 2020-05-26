@@ -2,8 +2,9 @@ import React from "react";
 import {faList, faPlus, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
+import {Button} from "react-bootstrap";
 
-const CourseNavComponent = ({}) =>
+const CourseNavComponent = ({courseTitleInputHandler, courseAddInputHandler}) =>
     <nav className="navbar navbar-expand navbar-light bg-white justify-content-between fixed-top wbdv-navbar">
         <div className="collapse navbar-collapse">
             <ul className="navbar-nav">
@@ -15,7 +16,7 @@ const CourseNavComponent = ({}) =>
                        data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">
-                        <span className="wbdv-field wbdv-hamburger"></span><FontAwesomeIcon icon={faList} size={2}/>
+                        <span className="wbdv-field wbdv-hamburger mr-2"><FontAwesomeIcon icon={faList} size={'1x'}/></span>
                         <span className="wbdv-label wbdv-course-manager d-none d-md-inline">Course Manager</span>
                     </a>
                     <div className="dropdown-menu">
@@ -29,10 +30,15 @@ const CourseNavComponent = ({}) =>
             <input className="form-control mr-4 bg-transparent-0 rounded-0 wbdv-field wbdv-new-course"
                    type="text"
                    placeholder="New Course"
-                   aria-label="New Course"/>
+                   aria-label="New Course"
+                   onChange={courseTitleInputHandler}/>
 
             <div className="navbar-light navbar-nav">
-                <a href="#" className="nav-link wbdv-button wbdv-add-course"><FontAwesomeIcon icon={faPlus} size={2}/></a>
+                <a
+                    className="btn nav-link wbdv-button wbdv-add-course"
+                    onClick={courseAddInputHandler}>
+                    <FontAwesomeIcon icon={faPlus} size={'2x'}/>
+                </a>
             </div>
 
             <div className="nav-item navbar-light navbar-nav dropdown">
@@ -43,7 +49,7 @@ const CourseNavComponent = ({}) =>
                    data-toggle="dropdown"
                    aria-haspopup="true"
                    aria-expanded="false">
-                    <FontAwesomeIcon icon={faUserCircle} size={2}/>
+                    <FontAwesomeIcon icon={faUserCircle} size={'2x'}/>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <Link className="dropdown-item" to="/profile">Profile</Link>
