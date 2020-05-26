@@ -45,7 +45,7 @@ const WhiteBoard = () => {
                     component={CourseManagerContainer}/>
 
                 <Route
-                    path='/editor'
+                    path='/editor/:courseId'
                     exact={true}
                     component={CourseEditorComponent}/>
 
