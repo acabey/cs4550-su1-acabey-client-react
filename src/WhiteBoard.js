@@ -2,8 +2,12 @@ import React from "react";
 
 import './Whiteboard.css';
 import {BrowserRouter, Route} from "react-router-dom";
-import CourseManagerContainer from "./containers/CourseManagerContainer";
 import HomeComponent from "./components/HomeComponent";
+import {LoginComponent} from "./components/LoginComponent";
+import {ProfileComponent} from "./components/ProfileComponent";
+import {RegisterComponent} from "./components/RegisterComponent";
+import CourseListContainer from "./containers/CourseListContainer";
+import CourseEditorComponent from "./components/CourseEditorContainer";
 
 
 const WhiteBoard = () => {
@@ -43,7 +47,7 @@ const WhiteBoard = () => {
                 <Route
                     path='/editor'
                     exact={true}
-                    component={CourseEditor}/>
+                    component={CourseEditorComponent}/>
 
             </div>
         </BrowserRouter>
