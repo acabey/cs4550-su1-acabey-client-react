@@ -1,43 +1,74 @@
 import React from 'react'
+import CourseTableHeadComponent from "./CourseTableHeadComponent";
+import CourseTableRowComponent from "./CourseTableRowComponent";
 
-const CourseTableComponent = ({courses, deleteCourse, toggleLayout}) =>
+class CourseTableComponent extends React.Component {
 
-    <div className="row justify-content-center">
-        <div className="col-md-10 col-12">
-            <table className="table table-striped">
-                <thead>
-                <tr className="table-dark">
-                    <th className="wbdv-header wbdv-title">Title</th>
-                    <th className="wbdv-header wbdv-owner d-none d-md-table-cell">Owned</th>
-                    <th className="wbdv-header wbdv-last-modified d-none d-md-table-cell">Modified</th>
-                    <th>
-                        <i className="fa fa-sort-alpha-asc wbdv-header wbdv-sort"></i>
-                        <i className="fa fa-th wbdv-button wbdv-grid-layout"></i>
-                        <i className="d-none fa fa-th wbdv-button wbdv-list-layout"></i>
-                    </th>
-                </tr>
-                </thead>
+    state = {
+        sortDescription: 'AZ_ASC'
+    };
 
-                <tbody>
-                <tr className="wbdv-row wbdv-course">
-                    <td>
-                        <i className="fa fa-file-text wbdv-row wbdv-icon"></i>
-                        <a href="/course-editor/course-editor.template.client.html">CS4550</a>
-                    </td>
-                    <td className="wbdv-row wbdv-owner d-none d-md-table-cell">JGA</td>
-                    <td className="wbdv-row wbdv-modified-date d-none d-md-table-cell">Today</td>
-                    <td>
-                        <button className="float-right btn btn-danger wbdv-row wbdv-button wbdv-delete">
-                            <i className="fa fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
+    toggleSort() {
+        this.setState({
+            sortDescription: this.state.sortDescription === 'AZ_ASC' ? 'AZ_DESC' : 'AZ_ASC'
+        })
+    }
 
-                <tfoot>
-                </tfoot>
-            </table>
-        </div>
-    </div>;
+    sortCourses(courses) {
+        if (this.state.sortDescription === 'AZ_ASC') {
+            return this.sortAZasc(courses);
+        } else {
+            return this.sortAZdesc(courses);
+        }
+    }
+
+    sortAZdesc(courses) {
+        return courses.sort((a, b) => a.title.localeCompare(b.title))
+    }
+
+    sortAZasc(courses) {
+        return courses.sort((a, b) => b.title.localeCompare(a.title))
+    }
+
+    render() {
+
+        return (
+            <div className="row justify-content-center">
+                <div className="col-md-10 col-12">
+                    <table className="table table-striped">
+                        <thead>
+                        <CourseTableHeadComponent
+                            sort={this.state.sortDescription}
+                            toggleSort={this.toggleSort}
+                            toggleLayout={this.props.toggleLayout}
+                            />
+                        </thead>
+
+                        <tbody>
+
+                        {
+                            this.sortCourses(this.props.courses).map(course =>
+                                <CourseTableRowComponent
+                                course={course}
+                                deleteCourse={this.props.deleteCourse}
+                                updateCourse={this.props.updateCourse}
+                                />
+                            )
+                        }
+
+                        </tbody>
+
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+    )
+
+
+    }
+
+}
+
 
 export default CourseTableComponent

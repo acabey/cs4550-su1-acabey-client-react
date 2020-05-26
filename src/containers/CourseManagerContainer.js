@@ -1,6 +1,6 @@
 import React from "react";
 import CourseTableComponent from "../components/CourseTableComponent";
-import {CourseGridComponent} from "../components/CourseGridComponent";
+import CourseGridComponent from "../components/CourseGridComponent";
 import CourseServiceClient from "../services/CourseService";
 import CourseNavComponent from "../components/CourseNavComponent";
 import {Container} from "react-bootstrap";
@@ -50,6 +50,13 @@ class CourseManagerContainer extends React.Component {
                     .courses.filter(course => course !== courseToDelete)
             })));
 
+    updateCourse = (courseToUpdate, updatedCourse) =>
+        this.courseServiceClient.updateCourse(courseToUpdate._id, updatedCourse)
+            .then(returnedCourse => this.setState(prevState => ({
+                courses: prevState
+                    .courses.map(course => course._id !== returnedCourse._id ? course : returnedCourse)
+            })));
+
     addCourse = (title) =>
         this.courseServiceClient.createCourse({
             title: title,
@@ -96,6 +103,7 @@ class CourseManagerContainer extends React.Component {
                     <CourseTableComponent
                         courses={this.state.courses}
                         deleteCourse={this.deleteCourse}
+                        updateCourse={this.updateCourse}
                         toggleLayout={this.layoutToggleInputHandler}/>
                 }
                 {
@@ -103,6 +111,7 @@ class CourseManagerContainer extends React.Component {
                     <CourseGridComponent
                         courses={this.state.courses}
                         deleteCourse={this.deleteCourse}
+                        updateCourse={this.updateCourse}
                         toggleLayout={this.layoutToggleInputHandler}/>
                 }
             </Container>
