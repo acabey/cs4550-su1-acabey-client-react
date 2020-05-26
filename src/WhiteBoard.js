@@ -6,7 +6,7 @@ import HomeComponent from "./components/HomeComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {ProfileComponent} from "./components/ProfileComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
-import CourseListContainer from "./containers/CourseListContainer";
+import CourseManagerContainer from "./containers/CourseManagerContainer";
 import CourseEditorComponent from "./components/CourseEditorContainer";
 
 
@@ -37,12 +37,12 @@ const WhiteBoard = () => {
                 <Route
                     path='/courses'
                     exact={true}
-                    component={CourseListContainer}/>
+                    component={CourseManagerContainer}/>
 
                 <Route
                     path='/:layout/courses'
                     exact={true}
-                    component={CourseListContainer}/>
+                    component={CourseManagerContainer}/>
 
                 <Route
                     path='/editor'
