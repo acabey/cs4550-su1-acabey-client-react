@@ -4,9 +4,12 @@ import './index.css';
 import WhiteBoard from './WhiteBoard';
 import * as serviceWorker from './serviceWorker';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 ReactDOM.render(
   <React.StrictMode>
-    <WhiteBoard />
+    <WhiteBoard/>
   </React.StrictMode>,
   document.getElementById('root')
 );
