@@ -5,7 +5,9 @@ import CourseServiceClient from "../services/CourseService";
 import CourseNavComponent from "../components/CourseNavComponent";
 import {Container} from "react-bootstrap";
 
-class CourseListContainer extends React.Component {
+import './CourseManagerContainer.css'
+
+class CourseManagerContainer extends React.Component {
 
     state = {
         layout: this.props.match.params.layout,
@@ -19,9 +21,6 @@ class CourseListContainer extends React.Component {
 
         this.courseServiceClient = new CourseServiceClient();
 
-        this.courseServiceClient.findAllCourses().then((new_courses) => {
-            this.state.courses = [...new_courses];
-        });
     }
 
     componentDidMount() {
@@ -67,50 +66,48 @@ class CourseListContainer extends React.Component {
                     }
                 }));
 
+    courseTitleInputHandler = (event) => {
+        this.setState({
+            newCourseTitle: event.target.value
+        })
+    };
+
+    courseAddInputHandler = (event) => {
+        this.addCourse(this.state.newCourseTitle);
+    };
+
+    layoutToggleInputHandler = (event) => {
+        if (this.state.layout === 'grid') {
+            this.setLayout('table');
+        } else if (this.state.layout === 'table') {
+            this.setLayout('grid');
+        }
+    };
+
     render() {
 
         return(
             <Container fluid={true}>
-                <CourseNavComponent/>
-                <h2>Course List {this.state.courses.length}</h2>
-                <input
-                    onChange={(event) => this.setState({
-                        newCourseTitle: event.target.value
-                    })}
-                    value={this.state.newCourseTitle}
-                    placeholder="Course Title"/>
-                <button onClick={
-                    () => this.addCourse(this.state.newCourseTitle)}>
-                    Add Course
-                </button>
-                <br/>
+                <CourseNavComponent
+                    courseTitleInputHandler={this.courseTitleInputHandler}
+                    courseAddInputHandler={this.courseAddInputHandler}/>
                 {
                     this.state.layout === 'table' &&
-                    <div>
-                        <button
-                            onClick={() =>
-                                this.setLayout('grid')}>
-                            Grid
-                        </button>
-                        <CourseTableComponent
-                            deleteCourse={this.deleteCourse}
-                            courses={this.state.courses}/>
-                    </div>
+                    <CourseTableComponent
+                        courses={this.state.courses}
+                        deleteCourse={this.deleteCourse}
+                        toggleLayout={this.layoutToggleInputHandler}/>
                 }
                 {
                     this.state.layout === 'grid' &&
-                    <div>
-                        <button
-                            onClick={() =>
-                                this.setLayout('table')}>
-                            Table
-                        </button>
-                        <CourseGridComponent courses={this.state.courses}/>
-                    </div>
+                    <CourseGridComponent
+                        courses={this.state.courses}
+                        deleteCourse={this.deleteCourse}
+                        toggleLayout={this.layoutToggleInputHandler}/>
                 }
             </Container>
         )
     }
 }
 
-export default CourseListContainer
+export default CourseManagerContainer
