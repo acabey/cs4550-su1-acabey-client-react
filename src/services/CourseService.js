@@ -1,7 +1,7 @@
 "use strict";
 class CourseServiceClient {
 
-    url = 'https://wbdv-generic-server.herokuapp.com/api/';
+    url = 'https://wbdv-generic-server.herokuapp.com/api';
     nuid = '001867846';
     endpoint = 'courses';
 
