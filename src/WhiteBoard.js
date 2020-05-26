@@ -1,7 +1,10 @@
-import React from 'react';
+import React from "react";
+
 import './Whiteboard.css';
 import {BrowserRouter, Route} from "react-router-dom";
 import CourseManagerContainer from "./containers/CourseManagerContainer";
+import HomeComponent from "./components/HomeComponent";
+
 
 const WhiteBoard = () => {
     return(
