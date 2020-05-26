@@ -1,5 +1,5 @@
 import React from "react";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CourseNavComponent = ({}) =>
@@ -14,7 +14,7 @@ const CourseNavComponent = ({}) =>
                        data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">
-                        <span className="wbdv-field wbdv-hamburger"></span><i className="fa fas fa-list"></i>
+                        <span className="wbdv-field wbdv-hamburger"></span><FontAwesomeIcon icon={faList} size={2}/>
                         <span className="wbdv-label wbdv-course-manager d-none d-md-inline">Course Manager</span>
                     </a>
                     <div className="dropdown-menu">
