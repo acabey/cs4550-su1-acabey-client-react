@@ -20,7 +20,7 @@ const CourseNavComponent = ({courseTitleInputHandler, courseAddInputHandler}) =>
                     </a>
                     <div className="dropdown-menu">
                         <a href="#" className="dropdown-item active">Course List</a>
-                        <a href="/course-editor"
+                        <a href="/editor"
                            className="dropdown-item">Course Editor</a>
                     </div>
                 </li>

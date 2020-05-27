@@ -44,9 +44,19 @@ const WhiteBoard = () => {
                 component={CourseManagerContainer}/>
 
             <Route
+                path='/editor'
+                exact={true}
+                component={CourseEditorContainer}/>
+
+            <Route
                 path='/editor/:courseId'
                 exact={true}
                 component={CourseEditorContainer}/>
+
+            <Route
+                path='/error'
+                exact={true}
+                component={HomeComponent}/>
 
         </BrowserRouter>
     )
