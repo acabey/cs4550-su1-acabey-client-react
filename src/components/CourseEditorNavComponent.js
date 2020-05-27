@@ -1,12 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faPlus, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const CourseEditorNavComponent = ({course}) =>
 
     <nav className="navbar navbar-expand navbar-light bg-white fixed-top wbdv-navbar">
-        <Link className="navbar-brand fa fa-times wbdv-course-editor wbdv-close" to="/table/courses"></Link>
+        <Link className="navbar-brand fa fa-times wbdv-course-editor wbdv-close" to="/table/courses">
+            <FontAwesomeIcon icon={faTimes}/>
+        </Link>
         <span className="navbar-brand wbdv-course-title d-none d-md-inline">{course.title}</span>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">

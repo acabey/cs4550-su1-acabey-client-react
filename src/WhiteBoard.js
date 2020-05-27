@@ -6,8 +6,8 @@ import HomeComponent from "./components/HomeComponent";
 import LoginComponent from "./components/LoginComponent";
 import ProfileComponent from "./components/ProfileComponent";
 import CourseManagerContainer from "./containers/CourseManagerContainer";
-import CourseEditorComponent from "./components/CourseEditorContainer";
 import RegisterComponent from "./components/RegisterComponent";
+import CourseEditorContainer from "./containers/CourseEditorContainer";
 
 
 const WhiteBoard = () => {
@@ -46,7 +46,7 @@ const WhiteBoard = () => {
             <Route
                 path='/editor/:courseId'
                 exact={true}
-                component={CourseEditorComponent}/>
+                component={CourseEditorContainer}/>
 
         </BrowserRouter>
     )

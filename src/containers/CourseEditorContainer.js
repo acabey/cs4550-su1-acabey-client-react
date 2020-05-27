@@ -3,6 +3,7 @@ import ModuleListComponent from "../components/ModuleListComponent";
 import LessonTabsComponent from "../components/LessonTabsComponent";
 import TopicPillsComponent from "../components/TopicPillsComponent";
 import CourseEditorNavComponent from "../components/CourseEditorNavComponent";
+
 class CourseEditorContainer extends React.Component {
 
     state = {
@@ -31,7 +32,9 @@ class CourseEditorContainer extends React.Component {
         }
     };
 
-    render = () =>
+    render = () => {
+        console.log(this.state);
+        return (
         <div className="container-fluid">
 
             <CourseEditorNavComponent course={this.state.course}/>
@@ -51,4 +54,8 @@ class CourseEditorContainer extends React.Component {
                 </div>
             </div>
         </div>
+        )
+    }
 }
+
+export default CourseEditorContainer;
