@@ -62,11 +62,12 @@ class CourseTableRowComponent extends React.Component {
                 }
 
                 <td className="wbdv-row wbdv-owner d-none d-md-table-cell">{this.props.course.owner}</td>
-                <td className="wbdv-row wbdv-modified-date d-none d-md-table-cell">{this.props.course.lastModified}</td>
+                <td className="wbdv-row wbdv-modified-date d-none d-md-table-cell">{this.props.course.modified}</td>
 
                 {!this.state.isEditing &&
-                <div>
-                    <td>
+                <td>
+                    <div className={"float-right"}>
+
                         <button
                             className="btn wbdv-row wbdv-button wbdv-edit"
                             onClick={() => this.toggleEditing()}>
@@ -77,24 +78,24 @@ class CourseTableRowComponent extends React.Component {
                             onClick={() => this.props.deleteCourse(this.props.course)}>
                             <FontAwesomeIcon icon={faTrash}/>
                         </button>
-                    </td>
-                </div>
+                    </div>
+                </td>
                 }
                 {this.state.isEditing &&
-                <div>
-                    <td>
+                <td>
+                    <div className={"float-right"}>
                         <button
                             className="btn wbdv-row wbdv-button wbdv-edit"
                             onClick={() => this.cancelCourseChanges()}>
                             <FontAwesomeIcon icon={faBan}/>
                         </button>
                         <button
-                            className="float-right btn wbdv-row wbdv-button wbdv-delete"
+                            className="btn wbdv-row wbdv-button wbdv-delete"
                             onClick={() => this.saveCourseChanges()}>
                             <FontAwesomeIcon icon={faCheck}/>
                         </button>
-                    </td>
-                </div>
+                    </div>
+                </td>
                 }
             </tr>
         )
