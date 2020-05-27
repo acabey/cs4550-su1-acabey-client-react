@@ -62,7 +62,7 @@ class CourseTableRowComponent extends React.Component {
                 }
 
                 <td className="wbdv-row wbdv-owner d-none d-md-table-cell">{this.props.course.owner}</td>
-                <td className="wbdv-row wbdv-modified-date d-none d-md-table-cell">{this.props.course.modified}</td>
+                <td className="wbdv-row wbdv-modified-date d-none d-lg-table-cell">{this.props.course.modified}</td>
 
                 {!this.state.isEditing &&
                 <td>

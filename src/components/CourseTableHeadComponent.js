@@ -7,7 +7,7 @@ const CourseTableHeadComponent = ({sortState, toggleSort, toggleLayout}) => {
         <tr className="table-dark">
             <th className="wbdv-header wbdv-title">Title</th>
             <th className="wbdv-header wbdv-owner d-none d-md-table-cell">Owned</th>
-            <th className="wbdv-header wbdv-last-modified d-none d-md-table-cell">Last Modified</th>
+            <th className="wbdv-header wbdv-last-modified d-none d-lg-table-cell">Last Modified</th>
             <th>
                 <div className={"float-right"}>
                     <button className={"btn wbdv-header wbdv-sort text-white"}

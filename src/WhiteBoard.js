@@ -13,43 +13,41 @@ import RegisterComponent from "./components/RegisterComponent";
 const WhiteBoard = () => {
     return(
         <BrowserRouter>
-            <div>
-                <Route
-                    path='/'
-                    exact={true}
-                    component={HomeComponent}/>
+            <Route
+                path='/'
+                exact={true}
+                component={HomeComponent}/>
 
-                <Route
-                    path="/login"
-                    exact={true}
-                    component={LoginComponent}/>
+            <Route
+                path="/login"
+                exact={true}
+                component={LoginComponent}/>
 
-                <Route
-                    path="/profile"
-                    exact={true}
-                    component={ProfileComponent}/>
+            <Route
+                path="/profile"
+                exact={true}
+                component={ProfileComponent}/>
 
-                <Route
-                    path="/register"
-                    exact={true}
-                    component={RegisterComponent}/>
+            <Route
+                path="/register"
+                exact={true}
+                component={RegisterComponent}/>
 
-                <Route
-                    path='/courses'
-                    exact={true}
-                    component={CourseManagerContainer}/>
+            <Route
+                path='/courses'
+                exact={true}
+                component={CourseManagerContainer}/>
 
-                <Route
-                    path='/:layout/courses'
-                    exact={true}
-                    component={CourseManagerContainer}/>
+            <Route
+                path='/:layout/courses'
+                exact={true}
+                component={CourseManagerContainer}/>
 
-                <Route
-                    path='/editor/:courseId'
-                    exact={true}
-                    component={CourseEditorComponent}/>
+            <Route
+                path='/editor/:courseId'
+                exact={true}
+                component={CourseEditorComponent}/>
 
-            </div>
         </BrowserRouter>
     )
 };

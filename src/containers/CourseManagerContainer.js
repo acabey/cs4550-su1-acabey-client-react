@@ -52,10 +52,12 @@ class CourseManagerContainer extends React.Component {
 
     updateCourse = (courseToUpdate, updatedCourse) =>
         this.courseServiceClient.updateCourse(courseToUpdate._id, updatedCourse)
-            .then(returnedCourse => this.setState(prevState => ({
-                courses: prevState
-                    .courses.map(course => course._id !== returnedCourse._id ? course : returnedCourse)
-            })));
+            .then(returnedCourse => {
+                this.setState(prevState => ({
+                    courses: prevState.courses.map(course => course._id !== returnedCourse._id ? course : returnedCourse)
+                    })
+                );
+            });
 
     addCourse = (title) =>
         this.courseServiceClient.createCourse({
