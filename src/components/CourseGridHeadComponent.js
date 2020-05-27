@@ -5,10 +5,10 @@ import {faFolder, faList, faSortAlphaDown, faSortAlphaUp} from "@fortawesome/fre
 const CourseGridHeadComponent = ({sortState, toggleSort, toggleLayout}) =>
     <div className="row justify-content-center">
         <div className="col-4">
-            <h5>Recent Documents</h5>
+            <span>Recent Documents</span>
         </div>
         <div className="col-4">
-            <h5>Owned by me</h5>
+            <span>Owned by me</span>
         </div>
         <div className="col-2">
             <button className={"btn wbdv-btn"}

@@ -23,7 +23,7 @@ class CourseManagerContainer extends React.Component {
 
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.courseServiceClient.findAllCourses()
             .then(actualArrayOfCourses =>
                 this.setState({
@@ -31,7 +31,7 @@ class CourseManagerContainer extends React.Component {
                 }))
     };
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate = (prevProps, prevState, snapshot) => {
         if(prevProps.match.params.layout !== this.props.match.params.layout) {
             this.setState({
                 layout: this.props.match.params.layout
@@ -54,7 +54,7 @@ class CourseManagerContainer extends React.Component {
         this.courseServiceClient.updateCourse(courseToUpdate._id, updatedCourse)
             .then(returnedCourse => {
                 this.setState(prevState => ({
-                    courses: prevState.courses.map(course => course._id !== returnedCourse._id ? course : returnedCourse)
+                        courses: prevState.courses.map(course => course._id !== returnedCourse._id ? course : returnedCourse)
                     })
                 );
             });
@@ -93,32 +93,28 @@ class CourseManagerContainer extends React.Component {
         }
     };
 
-    render() {
-
-        return(
-            <Container fluid={true}>
-                <CourseNavComponent
-                    courseTitleInputHandler={this.courseTitleInputHandler}
-                    courseAddInputHandler={this.courseAddInputHandler}/>
-                {
-                    this.state.layout === 'table' &&
-                    <CourseTableComponent
-                        courses={this.state.courses}
-                        deleteCourse={this.deleteCourse}
-                        updateCourse={this.updateCourse}
-                        toggleLayout={this.layoutToggleInputHandler}/>
-                }
-                {
-                    this.state.layout === 'grid' &&
-                    <CourseGridComponent
-                        courses={this.state.courses}
-                        deleteCourse={this.deleteCourse}
-                        updateCourse={this.updateCourse}
-                        toggleLayout={this.layoutToggleInputHandler}/>
-                }
-            </Container>
-        )
-    }
+    render = () =>
+        <Container fluid={true}>
+            <CourseNavComponent
+                courseTitleInputHandler={this.courseTitleInputHandler}
+                courseAddInputHandler={this.courseAddInputHandler}/>
+            {
+                this.state.layout === 'table' &&
+                <CourseTableComponent
+                    courses={this.state.courses}
+                    deleteCourse={this.deleteCourse}
+                    updateCourse={this.updateCourse}
+                    toggleLayout={this.layoutToggleInputHandler}/>
+            }
+            {
+                this.state.layout === 'grid' &&
+                <CourseGridComponent
+                    courses={this.state.courses}
+                    deleteCourse={this.deleteCourse}
+                    updateCourse={this.updateCourse}
+                    toggleLayout={this.layoutToggleInputHandler}/>
+            }
+        </Container>
 }
 
 export default CourseManagerContainer

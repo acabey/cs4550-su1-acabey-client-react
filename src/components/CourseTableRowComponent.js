@@ -12,7 +12,10 @@ class CourseTableRowComponent extends CourseListCourseComponent {
             {!this.state.isEditing &&
             <td>
                 <FontAwesomeIcon icon={faFile} className={"wbdv-row wbdv-icon mr-2"}/>
-                <Link to={`/course-editor/${this.props.course._id}`}>{this.props.course.title}</Link>
+                <Link to={`/course-editor/${this.props.course._id}`}
+                      className={"text-dark"}>
+                    {this.props.course.title}
+                </Link>
             </td>
             }
             {this.state.isEditing &&
