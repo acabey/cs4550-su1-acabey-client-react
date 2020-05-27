@@ -6,7 +6,7 @@ const TopicPillsComponent = ({topics}) =>
     <ul className="nav nav-pills wbdv-topic-pill-list">
         {
             topics.map((topic, i) =>
-                <li className="nav-item wbdv-topic-pill">
+                <li className="nav-item wbdv-topic-pill mr-1">
                     <button className="btn nav-link active" href="#">{topic.title}</button>
                 </li>
             )

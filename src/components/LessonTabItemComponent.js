@@ -7,7 +7,7 @@ class LessonTabItemComponent extends React.Component {
     };
 
     render = () =>
-        <li className="nav-item">
+        <li className="nav-item mr-1">
             <button className={`nav-link ${this.state.isActive && 'active'}`}>{this.props.lesson.title}</button>
         </li>
 
