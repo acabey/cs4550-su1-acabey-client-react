@@ -16,7 +16,7 @@ class CourseGridCardComponent extends CourseListCourseComponent {
                 <div className="card-body">
                     {!this.state.isEditing &&
                         <div>
-                            <Link to={`/course-editor/${this.props.course._id}`}
+                            <Link to={`/editor/${this.props.course._id}`}
                                   className={"text-dark"}>
                                 <FontAwesomeIcon icon={faFile} className={"wbdv-row wbdv-icon mr-2"}/>
                                 <span className="card-title">{this.props.course.title}</span>

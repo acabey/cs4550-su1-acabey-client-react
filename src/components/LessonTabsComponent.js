@@ -1,7 +1,7 @@
 import React from "react";
 import LessonTabItemComponent from "./LessonTabItemComponent";
 
-const LessonTabsComponent = (lessons) =>
+const LessonTabsComponent = ({lessons}) =>
     <ul className="nav nav-tabs wbdv-lesson-tabs">
         {
             lessons.map((lesson, i) => <LessonTabItemComponent lesson={lesson}/>)

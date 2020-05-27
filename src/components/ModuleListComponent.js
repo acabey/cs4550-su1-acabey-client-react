@@ -1,7 +1,7 @@
 import React from "react";
 import ModuleListItemComponent from "./ModuleListItemComponent";
 
-const ModuleListComponent = (modules) =>
+const ModuleListComponent = ({modules}) =>
     <div className="list-group ml-2 mr-2 wbdv-module-list">
         {
             modules.map((module, i) => <ModuleListItemComponent module={module} i={i}/>)
