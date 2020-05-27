@@ -51,7 +51,7 @@ const RegisterComponent = () => {
                         <div class="col-sm-10">
                             <div class="form-group row">
                                 <Link class="btn btn-primary btn-primary btn-block wbdv-button wbdv-register"
-                                      to="../profile/profile.template.client.html">Register</Link>
+                                      to="/profile">Register</Link>
                             </div>
                             <div class="row">
                                 <div class="col-6">
