@@ -1,5 +1,7 @@
 import React from "react";
 import LessonTabItemComponent from "./LessonTabItemComponent";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 const LessonTabsComponent = ({lessons}) =>
     <ul className="nav nav-tabs wbdv-lesson-tabs">
@@ -7,7 +9,9 @@ const LessonTabsComponent = ({lessons}) =>
             lessons.map((lesson, i) => <LessonTabItemComponent lesson={lesson}/>)
         }
         <li className="nav-item">
-            <a className="fa fa-plus btn wbdv-lessons-add-btn" href="#"></a>
+            <button className="btn wbdv-lessons-add-btn">
+                <FontAwesomeIcon icon={faPlus}/>
+            </button>
         </li>
     </ul>;
 

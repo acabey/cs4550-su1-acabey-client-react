@@ -1,4 +1,6 @@
 import React from "react";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const TopicPillsComponent = ({topics}) =>
     <ul className="nav nav-pills wbdv-topic-pill-list">
@@ -10,7 +12,9 @@ const TopicPillsComponent = ({topics}) =>
             )
         }
         <li className="nav-item">
-            <a className="fa fa-plus btn wbdv-topic-add-btn" href="#"></a>
+            <button className="btn wbdv-topic-add-btn">
+                <FontAwesomeIcon icon={faPlus}/>
+            </button>
         </li>
     </ul>
 

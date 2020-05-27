@@ -12,22 +12,22 @@ class CourseEditorContainer extends React.Component {
             _id: this.props.match.params.courseId
         },
         modules: [
-            {title: 'Module 1'},
-            {title: 'Module 2'},
-            {title: 'Module 3'},
+            {title: 'Example Module 1'},
+            {title: 'Example Module 2'},
+            {title: 'Example Module 3'},
         ],
         selectedModule: {
             lessons: [
-                {title: 'Lesson 1'},
-                {title: 'Lesson 2'},
-                {title: 'Lesson 3'},
+                {title: 'Example Lesson 1'},
+                {title: 'Example Lesson 2'},
+                {title: 'Example Lesson 3'},
             ]
         },
         selectedLesson: {
             topics: [
-                {title: 'Topic 1'},
-                {title: 'Topic 2'},
-                {title: 'Topic 3'},
+                {title: 'Example Topic 1'},
+                {title: 'Example Topic 2'},
+                {title: 'Example Topic 3'},
             ]
         }
     };
