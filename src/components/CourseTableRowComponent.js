@@ -2,12 +2,13 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBan, faCheck, faFile, faPencilAlt, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
-import CourseCommonStateComponent from "./CourseCommonStateComponent";
+import CourseListCourseComponent from "./CourseListCourseComponent";
 
-class CourseTableRowComponent extends CourseCommonStateComponent {
+class CourseTableRowComponent extends CourseListCourseComponent {
 
     render = () =>
-        <tr className={`wbdv-row wbdv-course ${this.state.isEditing && 'selected'}`}>
+        <tr className={`wbdv-row wbdv-course ${this.state.isSelected && 'bg-primary'}`}
+            onClick={() => this.toggleSelected()}>
             {!this.state.isEditing &&
             <td>
                 <FontAwesomeIcon icon={faFile} className={"wbdv-row wbdv-icon mr-2"}/>

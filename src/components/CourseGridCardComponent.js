@@ -1,14 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTrash, faPencilAlt, faCheck, faBan, faFile} from '@fortawesome/free-solid-svg-icons'
-import CourseCommonStateComponent from "./CourseCommonStateComponent";
+import CourseListCourseComponent from "./CourseListCourseComponent";
 import {Link} from "react-router-dom";
 
-class CourseGridCardComponent extends CourseCommonStateComponent {
+class CourseGridCardComponent extends CourseListCourseComponent {
 
     render = () =>
         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2">
-            <div className="card">
+            <div className={`card ${this.state.isSelected && 'bg-primary'}`}
+                onClick={() => this.toggleSelected()}>
                 <img className="card-img-top"
                      src="https://cdn1.vox-cdn.com/thumbor/ACMo0hMhU4VOlg-nbzMwBZ0o5lw=/3x0:1279x851/1280x854/cdn0.vox-cdn.com/uploads/chorus_image/image/49034521/B12.0.0.png"
                      alt="Card image cap"/>

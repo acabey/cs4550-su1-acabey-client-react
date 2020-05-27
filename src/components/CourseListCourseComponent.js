@@ -1,15 +1,28 @@
 import React from "react";
 
-class CourseCommonStateComponent extends React.Component {
+class CourseListCourseComponent extends React.Component {
 
     state = {
         isEditing: false,
-        updatedTitle: this.props.course.title
+        updatedTitle: this.props.course.title,
+        isSelected: false
+    };
+
+    toggleSelected = () => {
+        if (!this.state.isEditing) {
+            this.setState((prevState) => ({
+                isSelected: !prevState.isSelected
+            }))
+        } else {
+            this.setState((prevState) => ({
+                isSelected: prevState.isEditing
+            }))
+        }
     };
 
     toggleEditing = () => {
         this.setState((prevState) => ({
-            isEditing: !prevState.isEditing
+            isEditing: !prevState.isEditing,
         }))
     };
 
@@ -40,4 +53,4 @@ class CourseCommonStateComponent extends React.Component {
 
 }
 
-export default CourseCommonStateComponent;
+export default CourseListCourseComponent;
