@@ -8,29 +8,29 @@ class CourseTableComponent extends React.Component {
         sortDescription: 'AZ_ASC'
     };
 
-    toggleSort() {
+    toggleSort = () => {
         this.setState({
             sortDescription: this.state.sortDescription === 'AZ_ASC' ? 'AZ_DESC' : 'AZ_ASC'
         })
-    }
+    };
 
-    sortCourses(courses) {
+    sortCourses = (courses) => {
         if (this.state.sortDescription === 'AZ_ASC') {
             return this.sortAZasc(courses);
         } else {
             return this.sortAZdesc(courses);
         }
-    }
+    };
 
-    sortAZdesc(courses) {
+    sortAZdesc = (courses) => {
         return courses.sort((a, b) => a.title.localeCompare(b.title))
-    }
+    };
 
-    sortAZasc(courses) {
+    sortAZasc = (courses) => {
         return courses.sort((a, b) => b.title.localeCompare(a.title))
-    }
+    };
 
-    render() {
+    render = () => {
 
         return (
             <div className="row justify-content-center">
@@ -63,11 +63,8 @@ class CourseTableComponent extends React.Component {
                     </table>
                 </div>
             </div>
-    )
-
-
-    }
-
+        )
+    };
 }
 
 

@@ -1,8 +1,8 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSortAlphaDown, faTh} from "@fortawesome/free-solid-svg-icons";
+import {faSortAlphaDown, faSortAlphaUp, faTh} from "@fortawesome/free-solid-svg-icons";
 
-const CourseTableHeadComponent = (sort, toggleSort, toggleLayout) => {
+const CourseTableHeadComponent = ({sortState, toggleSort, toggleLayout}) => {
     return (
         <tr className="table-dark">
             <th className="wbdv-header wbdv-title">Title</th>
@@ -11,11 +11,11 @@ const CourseTableHeadComponent = (sort, toggleSort, toggleLayout) => {
             <th>
                 <div className={"float-right"}>
                     <button className={"btn wbdv-header wbdv-sort text-white"}
-                            onClick={() => {}}>
-                        <FontAwesomeIcon icon={faSortAlphaDown} />
+                            onClick={() => toggleSort()}>
+                        <FontAwesomeIcon icon={sortState === "AZ_DESC" ? faSortAlphaDown : faSortAlphaUp} />
                     </button>
                     <button className={"btn wbdv-button wbdv-grid-layout text-white"}
-                            onClick={() => {}}>
+                            onClick={() => toggleLayout()}>
                         <FontAwesomeIcon icon={faTh}/>
                     </button>
                 </div>

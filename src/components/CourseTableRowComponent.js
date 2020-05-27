@@ -10,26 +10,26 @@ class CourseTableRowComponent extends React.Component {
         updatedTitle: this.props.course.title
     };
 
-    toggleEditing() {
+    toggleEditing = () => {
         this.setState((prevState) => ({
             isEditing: !prevState.isEditing
         }))
-    }
+    };
 
-    updateTitleEventHandler(event) {
+    updateTitleEventHandler = (event) => {
         this.setState({
             updatedTitle: event.target.value
         })
-    }
+    };
 
-    cancelCourseChanges() {
+    cancelCourseChanges = () => {
         this.setState({
             isEditing: false,
             updatedTitle: this.props.course.title
         })
-    }
+    };
 
-    saveCourseChanges() {
+    saveCourseChanges = () => {
 
         // Send updateCourse request up through handlers to service
         this.props.updateCourse(this.props.course, {
@@ -38,10 +38,10 @@ class CourseTableRowComponent extends React.Component {
 
         this.setState({
             isEditing: false
-        })
-    }
+        });
+    };
 
-    render() {
+    render = () => {
         return (
             <tr className={`wbdv-row wbdv-course ${this.state.isEditing && 'selected'}`}>
                 {!this.state.isEditing &&
