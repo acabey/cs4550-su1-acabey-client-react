@@ -9,8 +9,10 @@ const CourseTableHeadComponent = (sort, toggleSort, toggleLayout) => {
             <th className="wbdv-header wbdv-owner d-none d-md-table-cell">Owned</th>
             <th className="wbdv-header wbdv-last-modified d-none d-md-table-cell">Modified</th>
             <th>
-                <FontAwesomeIcon icon={faSortAlphaDown} className={"wbdv-header wbdv-sort"}/>
-                <FontAwesomeIcon icon={faTh} className={"wbdv-button wbdv-grid-layout"}/>
+                <div>
+                    <FontAwesomeIcon icon={faSortAlphaDown} className={"wbdv-header wbdv-sort"}/>
+                    <FontAwesomeIcon icon={faTh} className={"float-right wbdv-button wbdv-grid-layout"}/>
+                </div>
             </th>
         </tr>
     )

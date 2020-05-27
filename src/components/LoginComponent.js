@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const LoginComponent = () =>
+const LoginComponent = () =>
     <div className="container">
         <h1>Sign In</h1>
         <div className="rounded border border-secondary bg-white">
@@ -26,16 +26,16 @@ export const LoginComponent = () =>
                 <div className="form-group row">
                     <label className="col-sm-2 col-form-label"></label>
                     <div className="col-sm-10">
-                        <button className="btn btn-primary btn-block wbdv-login"
-                                onClick="window.location.href='/profile/profile.template.client.html'">Sign in
-                        </button>
+                        <Link className="btn btn-primary btn-block wbdv-login"
+                              to="/profile">Sign in
+                        </Link>
                         <div className="row">
                             <div className="col-6">
                                 <a href="#" className="wbdv-link wbdv-forgot-password">Forgot Password?</a>
                             </div>
                             <div className="col-6">
                                 <Link className="float-right wbdv-link wbdv-register"
-                                      to="/register/register.template.client.html">Sign up</Link>
+                                      to="/register">Sign up</Link>
                             </div>
                         </div>
                     </div>
@@ -43,3 +43,5 @@ export const LoginComponent = () =>
             </form>
         </div>
     </div>
+
+export default LoginComponent;

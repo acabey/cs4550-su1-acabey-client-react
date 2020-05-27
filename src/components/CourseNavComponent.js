@@ -2,7 +2,6 @@ import React from "react";
 import {faList, faPlus, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
 
 const CourseNavComponent = ({courseTitleInputHandler, courseAddInputHandler}) =>
     <nav className="navbar navbar-expand navbar-light bg-white justify-content-between fixed-top wbdv-navbar">
@@ -21,7 +20,7 @@ const CourseNavComponent = ({courseTitleInputHandler, courseAddInputHandler}) =>
                     </a>
                     <div className="dropdown-menu">
                         <a href="#" className="dropdown-item active">Course List</a>
-                        <a href="/course-editor/course-editor.template.client.html"
+                        <a href="/course-editor"
                            className="dropdown-item">Course Editor</a>
                     </div>
                 </li>

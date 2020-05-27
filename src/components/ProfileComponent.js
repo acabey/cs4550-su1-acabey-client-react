@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const ProfileComponent = (user) => {
+const ProfileComponent = (user) => {
     return (
         <div className="container">
             <h1>Profile</h1>
@@ -122,3 +122,5 @@ export const ProfileComponent = (user) => {
             </div>
         </div>);
 };
+
+export default ProfileComponent;

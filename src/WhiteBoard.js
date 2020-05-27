@@ -3,11 +3,11 @@ import React from "react";
 import './Whiteboard.css';
 import {BrowserRouter, Route} from "react-router-dom";
 import HomeComponent from "./components/HomeComponent";
-import {LoginComponent} from "./components/LoginComponent";
-import {ProfileComponent} from "./components/ProfileComponent";
-import {RegisterComponent} from "./components/RegisterComponent";
+import LoginComponent from "./components/LoginComponent";
+import ProfileComponent from "./components/ProfileComponent";
 import CourseManagerContainer from "./containers/CourseManagerContainer";
 import CourseEditorComponent from "./components/CourseEditorContainer";
+import RegisterComponent from "./components/RegisterComponent";
 
 
 const WhiteBoard = () => {
@@ -52,6 +52,6 @@ const WhiteBoard = () => {
             </div>
         </BrowserRouter>
     )
-}
+};
 
 export default WhiteBoard;
