@@ -33,27 +33,26 @@ class CourseEditorContainer extends React.Component {
     };
 
     render = () => {
-        console.log(this.state);
         return (
-        <div className="container-fluid">
+            <div className="container-fluid">
 
-            <CourseEditorNavComponent course={this.state.course}/>
+                <CourseEditorNavComponent course={this.state.course}/>
 
-            <div className="row">
-                <div className="col-4">
-                    <ModuleListComponent modules={this.state.modules}/>
-                </div>
-                <div className="col-8">
-                    <div className="row">
-                        <LessonTabsComponent lessons={this.state.selectedModule.lessons}/>
+                <div className="row">
+                    <div className="col-4">
+                        <ModuleListComponent modules={this.state.modules}/>
                     </div>
+                    <div className="col-8">
+                        <div className="row">
+                            <LessonTabsComponent lessons={this.state.selectedModule.lessons}/>
+                        </div>
 
-                    <div className="row mt-2">
-                        <TopicPillsComponent topics={this.state.selectedLesson.topics}/>
+                        <div className="row mt-2">
+                            <TopicPillsComponent topics={this.state.selectedLesson.topics}/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         )
     }
 }
