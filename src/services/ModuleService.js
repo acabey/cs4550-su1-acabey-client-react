@@ -11,7 +11,7 @@ export const findModuleForCourse = (courseId) =>
 
 
 export const deleteModule = (moduleId) => {
-    return fetch("${url}/${nuid}/modules/" + moduleId, {
+    return fetch(`${url}/${nuid}/modules/${moduleId}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
