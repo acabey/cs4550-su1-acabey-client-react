@@ -49,7 +49,7 @@ const WhiteBoard = () => {
                 component={CourseEditorContainer}/>
 
             <Route
-                path='/editor/:courseId'
+                path={['/editor/:courseId', '/editor/:courseId/modules/:moduleId']}
                 exact={true}
                 component={CourseEditorContainer}/>
 
