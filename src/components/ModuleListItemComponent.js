@@ -9,11 +9,11 @@ class ModuleListItemComponent extends React.Component {
 
    render = () =>
       <div>
-         <li key={module._id}>
+         <li key={this.props.module._id}>
             {
-               this.state.editingModule._id === module._id &&
+               this.state.editingModule._id === this.props.module._id &&
                <span>
-                    <button onClick={() => this.props.deleteModule(module._id)}>
+                    <button onClick={() => this.props.deleteModule(this.props.module._id)}>
                       Delete
                     </button>
                     <button onClick={() => {
@@ -35,20 +35,20 @@ class ModuleListItemComponent extends React.Component {
                     </span>
             }
             {
-               this.state.editingModule._id !== module._id &&
+               this.state.editingModule._id !== this.props.module._id &&
                <span>
                     <button onClick={() => this.setState({editingModule: module})}>
                       Edit
                     </button>
-                    <Link to={`/editor/${this.props.params.courseId}/modules/${module._id}`}>
-                      {module.title}
+                    <Link to={`/editor/${this.props.params.courseId}/modules/${this.props.module._id}`}>
+                      {this.props.module.title}
                     </Link>
                   </span>
             }
          </li>
 
          <div className="row list-group-item wbdv-module-item">
-            <span className="wbdv-module-item-title">{`Module ${i + 1} - ${module.title}`}</span>
+            <span className="wbdv-module-item-title">{`Module ${this.props.i + 1} - ${this.props.module.title}`}</span>
             <button className="btn float-right wbdv-module-item-delete-btn">X</button>
          </div>
 
