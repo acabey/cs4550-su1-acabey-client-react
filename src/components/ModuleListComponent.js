@@ -3,16 +3,48 @@ import ModuleListItemComponent from "./ModuleListItemComponent";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
-const ModuleListComponent = ({modules}) =>
-    <div className="list-group ml-2 mr-2 wbdv-module-list">
-        {
-            modules.map((module, i) => <ModuleListItemComponent module={module} i={i}/>)
-        }
-        <div className="row list-group-item bg-transparent border-0">
-            <button className="btn float-right wbdv-module-item-add-btn">
-                <FontAwesomeIcon icon={faPlus}/>
-            </button>
-        </div>
-    </div>;
+class ModuleListComponent extends React.Component {
+    state = {
+        newModuleTitle: 'some other module',
+        editingModule: {}
+    };
+
+    componentDidMount() {
+        // this.props.findAllModules()
+        this.props.findModuleForCourse(this.props.params.courseId)
+    };
+
+    render() {
+        return(
+            <div>
+                <h1>Modules ({this.props.modules.length})</h1>
+                ({this.props.params.courseId})
+
+                <div className="list-group ml-2 mr-2 wbdv-module-list">
+                    {
+                        this.props.modules.map((module, i) => <ModuleListItemComponent module={module} i={i}/>)
+                    }
+                    <div className="row list-group-item bg-transparent border-0">
+                        <input onChange={(event) =>
+                            this.setState({
+                                newModuleTitle: event.target.value
+                            })}
+                               value={this.state.newModuleTitle}/>
+                        <button
+                            className="btn float-right wbdv-module-item-add-btn"
+                            onClick={() => this.props.createModule(
+                                this.props.params.courseId,
+                                {
+                                    title: this.state.newModuleTitle
+                                })}>
+                            <FontAwesomeIcon icon={faPlus}/>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        )
+    }
+}
 
 export default ModuleListComponent
