@@ -1,4 +1,4 @@
-const url = '${url}';
+const url = 'https://wbdv-generic-server.herokuapp.com/api';
 const nuid = '001867846';
 
 export const findAllModules = () =>
