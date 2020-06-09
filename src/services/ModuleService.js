@@ -1,45 +1,38 @@
-const findAllModules = () => {
-    return fetch("https://wbdv-generic-server.herokuapp.com/api/jannunzi/modules")
-        .then(response => response.json())
-}
+const url = '${url}';
+const nuid = '001867846';
 
-const findModuleForCourse = (courseId) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses/${courseId}/modules`)
-        .then(response => response.json())
+export const findAllModules = () =>
+    fetch(`${url}/${nuid}/modules`)
+        .then(response => response.json());
+
+export const findModuleForCourse = (courseId) =>
+    fetch(`${url}/${nuid}/courses/${courseId}/modules`)
+        .then(response => response.json());
 
 
-const deleteModule = (moduleId) => {
-    return fetch("https://wbdv-generic-server.herokuapp.com/api/jannunzi/modules/" + moduleId, {
+export const deleteModule = (moduleId) => {
+    return fetch("${url}/${nuid}/modules/" + moduleId, {
         method: 'DELETE'
     })
         .then(response => response.json())
-}
+};
 
-const updateModule = (moduleId, newModule) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/jannunzi/modules/${moduleId}`, {
+export const updateModule = (moduleId, newModule) =>
+    fetch(`${url}/${nuid}/modules/${moduleId}`, {
         method: 'PUT',
         body: JSON.stringify(newModule),
         headers: {
             'content-type': 'application/json'
         }
     })
-        .then(response => response.json())
+        .then(response => response.json());
 
-const createModule = (courseId, module) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses/${courseId}/modules`, {
+export const createModule = (courseId, module) =>
+    fetch(`${url}/${nuid}/courses/${courseId}/modules`, {
         method: 'POST',
         body: JSON.stringify(module),
         headers: {
             'content-type': 'application/json'
         }
     })
-        .then(response => response.json())
-
-
-export default {
-    findAllModules,
-    deleteModule,
-    createModule,
-    updateModule,
-    findModuleForCourse
-}
+        .then(response => response.json());
