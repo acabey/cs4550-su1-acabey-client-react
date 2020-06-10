@@ -9,16 +9,14 @@ class ModuleListComponent extends React.Component {
         editingModule: {}
     };
 
-    componentDidMount() {
-        // this.props.findAllModules()
-        this.props.findModuleForCourse(this.props.match.params.courseId);
+    componentDidMount = () => {
+        this.props.findModulesForCourse(this.props.course._id);
     };
 
-    render() {
+    render = () => {
         return(
             <div>
                 <h1>Modules ({this.props.modules.length})</h1>
-                ({this.props.match.params.courseId})
 
                 <div className="list-group ml-2 mr-2 wbdv-module-list">
                     {
@@ -33,7 +31,7 @@ class ModuleListComponent extends React.Component {
                         <button
                             className="btn float-right wbdv-module-item-add-btn"
                             onClick={() => this.props.createModule(
-                                this.props.params.courseId,
+                                this.props.course._id,
                                 {
                                     title: this.state.newModuleTitle
                                 })}>

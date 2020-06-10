@@ -5,7 +5,7 @@ export const findAllModules = () =>
     fetch(`${url}/${nuid}/modules`)
         .then(response => response.json());
 
-export const findModuleForCourse = (courseId) =>
+export const findModulesForCourse = (courseId) =>
     fetch(`${url}/${nuid}/courses/${courseId}/modules`)
         .then(response => response.json());
 

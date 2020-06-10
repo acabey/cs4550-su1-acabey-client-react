@@ -1,5 +1,4 @@
 const initialState = {
-    newModuleTitle: '',
     modules: []
 };
 
@@ -25,6 +24,7 @@ const moduleReducer = (state=initialState, event) => {
             };
             break
         case "CREATE_MODULE":
+            console.log("Create module reducer");
             return {
                 modules: [
                     ...state.modules,
