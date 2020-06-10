@@ -44,7 +44,7 @@ const dispatchToPropertyMapper = (dispatch) => {
                     newModule: actualNewModule
                 }))
         },
-        deleteModule  : (moduleId) => {
+        deleteModule: (moduleId) => {
             ModuleService.deleteModule(moduleId)
                 .then(status => dispatch({
                     type: "DELETE_MODULE",
@@ -59,6 +59,3 @@ const ModuleListContainer = connect
 (ModuleListComponent)
 
 export default ModuleListContainer
-export const ewq = 1
-export const rew = 2
-export const tre = 3
