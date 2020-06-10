@@ -24,6 +24,7 @@ class ModuleListComponent extends React.Component {
                             <ModuleListItemComponent
                                 module={module}
                                 updateModule={this.props.updateModule}
+                                course={this.props.course}
                                 i={i}/>)
                     }
                     <div className="row list-group-item bg-transparent border-0">

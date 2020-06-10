@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {faBan, faCheck, faPencilAlt} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class ModuleListItemComponent extends React.Component {
 
@@ -17,22 +19,27 @@ class ModuleListItemComponent extends React.Component {
 
     render = () =>
         <div>
-            <li key={this.props.module._id}>
+
+            <div className="row list-group-item wbdv-module-item">
                 {
                     !this.state.isEditing &&
                     <span>
-                    <Link to={`/editor/${this.props.params.courseId}/modules/${this.props.module._id}`}>
-                      {this.props.module.title}
-                    </Link>
+                    <span className="wbdv-module-item-title">
+                        <Link to={`/editor/${this.props.course._id}/modules/${this.props.module._id}`}>
+                            {this.props.module.title}
+                        </Link>
+                    </span>
+
                     <button onClick={() => this.setState({
                         isEditing: true,
                         updatedTitle: this.props.module.title
                     })}>
-                      Edit
+                      <FontAwesomeIcon icon={faPencilAlt}/>
                     </button>
-                    <button onClick={() => this.props.deleteModule(this.props.module._id)}>
-                      Delete
-                    </button>
+
+                <button
+                    className="btn float-right wbdv-module-item-delete-btn"
+                    onClick={() => this.props.deleteModule(this.props.module._id)}>X</button>
                   </span>
                 }
                 {
@@ -45,24 +52,19 @@ class ModuleListItemComponent extends React.Component {
                         }}
                         value={this.state.updatedTitle}/>
                     <button onClick={() => this.setState({isEditing: false})}>
-                      Cancel
+                      <FontAwesomeIcon icon={faBan}/>
                     </button>
                     <button onClick={() => {
                         this.props.updateModule(
                             this.props.module._id,
                             {...this.props.module, title: this.state.updatedTitle}
-                            );
+                        );
                         this.setState({isEditing: false})
                     }}>
-                      Save
+                      <FontAwesomeIcon icon={faCheck}/>
                     </button>
                     </span>
                 }
-            </li>
-
-            <div className="row list-group-item wbdv-module-item">
-                <span className="wbdv-module-item-title">{`Module ${this.props.i + 1} - ${this.props.module.title}`}</span>
-                <button className="btn float-right wbdv-module-item-delete-btn">X</button>
             </div>
 
         </div>
