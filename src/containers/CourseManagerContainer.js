@@ -1,9 +1,9 @@
 import React from "react";
 import CourseTableComponent from "../components/CourseTableComponent";
 import CourseGridComponent from "../components/CourseGridComponent";
-import CourseServiceClient from "../services/CourseService";
 import CourseNavComponent from "../components/CourseNavComponent";
 import {Container} from "react-bootstrap";
+import { findAllCourses, deleteCourse, updateCourse, createCourse, findCourseById } from "../services/CourseService";
 
 import './CourseManagerContainer.css'
 
@@ -15,16 +15,8 @@ class CourseManagerContainer extends React.Component {
         newCourseTitle: 'New Title ABC'
     };
 
-
-    constructor(props) {
-        super(props);
-
-        this.courseServiceClient = new CourseServiceClient();
-
-    }
-
     componentDidMount = () => {
-        this.courseServiceClient.findAllCourses()
+        findAllCourses()
             .then(actualArrayOfCourses =>
                 this.setState({
                     courses: actualArrayOfCourses
@@ -44,14 +36,14 @@ class CourseManagerContainer extends React.Component {
     };
 
     deleteCourse = (courseToDelete) =>
-        this.courseServiceClient.deleteCourse(courseToDelete._id)
+        deleteCourse(courseToDelete._id)
             .then(status => this.setState(prevState => ({
                 courses: prevState
                     .courses.filter(course => course !== courseToDelete)
             })));
 
     updateCourse = (courseToUpdate, updatedCourse) =>
-        this.courseServiceClient.updateCourse(courseToUpdate._id, updatedCourse)
+        updateCourse(courseToUpdate._id, updatedCourse)
             .then(returnedCourse => {
                 this.setState(prevState => ({
                         courses: prevState.courses.map(course => course._id !== returnedCourse._id ? course : returnedCourse)
@@ -60,7 +52,7 @@ class CourseManagerContainer extends React.Component {
             });
 
     addCourse = (title) =>
-        this.courseServiceClient.createCourse({
+        createCourse({
             title: title,
             owner: 'me',
             modified: (new Date()).toDateString()
