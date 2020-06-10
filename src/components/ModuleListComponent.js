@@ -5,7 +5,7 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 class ModuleListComponent extends React.Component {
     state = {
-        newModuleTitle: 'some other module',
+        newModuleTitle: 'New Module',
         editingModule: {_id : null}
     };
 
@@ -24,24 +24,34 @@ class ModuleListComponent extends React.Component {
                             <ModuleListItemComponent
                                 module={module}
                                 updateModule={this.props.updateModule}
+                                deleteModule={this.props.deleteModule}
                                 course={this.props.course}
                                 i={i}/>)
                     }
-                    <div className="row list-group-item bg-transparent border-0">
-                        <input onChange={(event) =>
-                            this.setState({
-                                newModuleTitle: event.target.value
-                            })}
-                               value={this.state.newModuleTitle}/>
-                        <button
-                            className="btn float-right wbdv-module-item-add-btn"
-                            onClick={() => this.props.createModule(
-                                this.props.course._id,
-                                {
-                                    title: this.state.newModuleTitle
-                                })}>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </button>
+                    <div className="row list-group-item bg-transparent ">
+                        <div className={"input-group"}>
+
+                            <input
+                                className={"form-control"}
+                                onChange={(event) =>
+                                    this.setState({
+                                        newModuleTitle: event.target.value
+                                    })}
+                                aria-describedby={"add-module-btn"}
+                                value={this.state.newModuleTitle}/>
+                            <div className={"input-group-append"}>
+                                <button
+                                    className="btn float-right wbdv-module-item-add-btn"
+                                    onClick={() => this.props.createModule(
+                                        this.props.course._id,
+                                        {
+                                            title: this.state.newModuleTitle
+                                        })}
+                                    id={"add-module-btn"}>
+                                    <FontAwesomeIcon icon={faPlus}/>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
