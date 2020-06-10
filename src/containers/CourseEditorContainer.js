@@ -3,13 +3,14 @@ import ModuleListComponent from "../components/ModuleListComponent";
 import LessonTabsComponent from "../components/LessonTabsComponent";
 import TopicPillsComponent from "../components/TopicPillsComponent";
 import CourseEditorNavComponent from "../components/CourseEditorNavComponent";
+import {findCourseById} from "../services/CourseService";
+import {findModuleForCourse} from "../services/ModuleService";
+import {findLessonsForModule} from "../services/LessonService";
 
 class CourseEditorContainer extends React.Component {
 
     state = {
         course: {
-            title: 'CS4550 - Web Development',
-            _id: this.props.match.params.courseId
         },
         modules: [
             {title: 'Example Module 1'},
@@ -30,6 +31,24 @@ class CourseEditorContainer extends React.Component {
                 {title: 'Example Topic 3'},
             ]
         }
+    };
+
+    componentDidMount = () => {
+        this.setState({
+            course: findCourseById(this.props.match.params.courseId),
+        });
+        this.setState((prevState) => ({
+            modules: findModuleForCourse(prevState.course._id)
+        }));
+        this.setState((prevState) => ({
+            selectedModule: prevState.modules[0] ? prevState.modules[0] : null
+        }));
+        this.setState((prevState) => ({
+            lessons: prevState.selectedModule ? findLessonsForModule(prevState.selectedModule._id) : null
+        }));
+        this.setState((prevState) => ({
+            selectedLesson: prevState.lessons[0] ? prevState.lessons[0] : null
+        }));
     };
 
     render = () =>
