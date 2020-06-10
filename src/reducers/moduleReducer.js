@@ -1,5 +1,5 @@
 const initialState = {
-    modules: []
+    modules: [],
 };
 
 const moduleReducer = (state=initialState, event) => {

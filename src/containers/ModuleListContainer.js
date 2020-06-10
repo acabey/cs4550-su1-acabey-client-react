@@ -6,6 +6,7 @@ import {createModule, deleteModule, findAllModules, findModulesForCourse, update
 const stateToPropertyMapper = (state, ownProps) => {
     return {
         modules: state.moduleReducer.modules,
+        editingModule: state.moduleReducer.editingModule,
         params: ownProps.params
         // ownProps: ownProps
     }
@@ -38,7 +39,7 @@ const dispatchToPropertyMapper = (dispatch) => {
             console.log("Container create module");
             createModule(courseId, newModule)
                 .then(actualNewModule => dispatch({
-                    type: "ADD_MODULE",
+                    type: "CREATE_MODULE",
                     newModule: actualNewModule
                 }))
         },

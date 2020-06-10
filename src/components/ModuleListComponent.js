@@ -6,7 +6,7 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons";
 class ModuleListComponent extends React.Component {
     state = {
         newModuleTitle: 'some other module',
-        editingModule: {}
+        editingModule: {_id : null}
     };
 
     componentDidMount = () => {
@@ -20,7 +20,11 @@ class ModuleListComponent extends React.Component {
 
                 <div className="list-group ml-2 mr-2 wbdv-module-list">
                     {
-                        this.props.modules.map((module, i) => <ModuleListItemComponent module={module} i={i}/>)
+                        this.props.modules.map((module, i) =>
+                            <ModuleListItemComponent
+                                module={module}
+                                updateModule={this.props.updateModule}
+                                i={i}/>)
                     }
                     <div className="row list-group-item bg-transparent border-0">
                         <input onChange={(event) =>
