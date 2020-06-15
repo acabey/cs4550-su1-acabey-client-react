@@ -26,17 +26,15 @@ class WidgetEditComponent extends React.Component {
             case 'HEADING': {
                 return <div className={'col-12 border'}>
 
-                    <div className={"row"}>
-                        <div className={"col-6 col-md-8"}>
-                            <span>
+                    <div className={'m-2'}>
+
+                        <div className={"row p-1"}>
+                            <div className={"col-4"}>
                                 <h3>{this.props.widget.name}</h3>
-                            </span>
+                            </div>
 
-                        </div>
-
-                        <div className={"col-6 col-md-4"}>
-                            <div className={'row'}>
-                                <div className={'col-4 p-0'}>
+                            <div className={"col-8"}>
+                                <div className={'row justify-content-end'}>
                                     <button className={"btn btn-warning mr-1"} onClick={() => console.log('increase widgetOrder')}>
                                         <FontAwesomeIcon icon={faArrowUp}/>
                                     </button>
@@ -44,56 +42,54 @@ class WidgetEditComponent extends React.Component {
                                     <button className={"btn btn-warning mr-1"} onClick={() => console.log('decrease widgetOrder')}>
                                         <FontAwesomeIcon icon={faArrowDown}/>
                                     </button>
-                                </div>
-                                <div className={'col-6 p-0'}>
-                                    <select className="custom-select form-inline d-inline-block mr-1" onChange={() => console.log("Changed widget type")}>
-                                        <option selected value="HEADING">Heading</option>
-                                        <option value="PARAGRAPH">Paragraph</option>
-                                    </select>
-                                </div>
-                                <div className={'col-2 p-0 pl-2'}>
+                                    <div className={'d-inline-block mr-1'}>
+                                        <select className="custom-select form-inline " onChange={() => console.log("Changed widget type")}>
+                                            <option selected value="HEADING">Heading</option>
+                                            <option value="PARAGRAPH">Paragraph</option>
+                                        </select>
+                                    </div>
                                     <button className={"btn btn-danger"} onClick={() => console.log('delete widget')}>
                                         <FontAwesomeIcon icon={faTimes}/>
                                     </button>
                                 </div>
                             </div>
+
+                        </div>
+
+                        <div className={'row p-1'}>
+                            <input className={'form-control'}
+                                   placeholder={'Heading text'}
+                                   onChange={(e) => console.log(`Changed heading text value: ${e.target.value}`)}
+                            />
+                        </div>
+
+                        <div className={'row p-1'}>
+                            <select className="custom-select form-control"
+                                    onChange={() => console.log("Changed header type")}>
+                                <option selected value="H1">H1</option>
+                                <option value="H2">H2</option>
+                                <option value="H3">H3</option>
+                                <option value="H4">H4</option>
+                                <option value="H5">H5</option>
+                            </select>
+                        </div>
+
+                        <div className={'row p-1'}>
+                            <input className={'form-control'}
+                                   placeholder={'Widget name'}
+                                   onChange={(e) => console.log(`Changed widget name value: ${e.target.value}`)}
+                            />
+                        </div>
+
+                        <div className={'row p-1'}>
+                            <h3>Preview</h3>
+                        </div>
+
+                        <div className={'row p-1'}>
+                            <WidgetViewComponent widget={this.props.widget}/>
                         </div>
 
                     </div>
-
-                    <div className={'row'}>
-                        <input className={'form-control'}
-                               placeholder={'Heading text'}
-                               onChange={(e) => console.log(`Changed heading text value: ${e.target.value}`)}
-                        />
-                    </div>
-
-                    <div className={'row'}>
-                        <select className="custom-select form-control"
-                                onChange={() => console.log("Changed header type")}>
-                            <option selected value="H1">H1</option>
-                            <option value="H2">H2</option>
-                            <option value="H3">H3</option>
-                            <option value="H4">H4</option>
-                            <option value="H5">H5</option>
-                        </select>
-                    </div>
-
-                    <div className={'row'}>
-                        <input className={'form-control'}
-                               placeholder={'Widget name'}
-                               onChange={(e) => console.log(`Changed widget name value: ${e.target.value}`)}
-                        />
-                    </div>
-
-                    <div className={'row'}>
-                        <h3>Preview</h3>
-                    </div>
-
-                    <div className={'row'}>
-                        <WidgetViewComponent widget={this.props.widget}/>
-                    </div>
-
                 </div>
 
             }
