@@ -20,6 +20,35 @@ class WidgetEditComponent extends React.Component {
     Integer topicId; // Unique ID of parent topic
     */
 
+    widgetMetaRow = (
+        <div className={"row p-1"}>
+            <div className={"col-4"}>
+                <h3>{this.props.widget.name}</h3>
+            </div>
+
+            <div className={"col-8"}>
+                <div className={'row justify-content-end'}>
+                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('increase widgetOrder')}>
+                        <FontAwesomeIcon icon={faArrowUp}/>
+                    </button>
+
+                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('decrease widgetOrder')}>
+                        <FontAwesomeIcon icon={faArrowDown}/>
+                    </button>
+                    <div className={'d-inline-block mr-1'}>
+                        <select className="custom-select form-inline " onChange={() => console.log("Changed widget type")}>
+                            <option selected={this.props.widget.type === 'HEADING'} value="HEADING">Heading</option>
+                            <option selected={this.props.widget.type === 'PARAGRAPH'} value="PARAGRAPH">Paragraph</option>
+                        </select>
+                    </div>
+                    <button className={"btn btn-danger"} onClick={() => console.log('delete widget')}>
+                        <FontAwesomeIcon icon={faTimes}/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+
     render = () => {
 
         switch (this.props.widget.type) {
@@ -28,33 +57,7 @@ class WidgetEditComponent extends React.Component {
 
                     <div className={'m-2'}>
 
-                        <div className={"row p-1"}>
-                            <div className={"col-4"}>
-                                <h3>{this.props.widget.name}</h3>
-                            </div>
-
-                            <div className={"col-8"}>
-                                <div className={'row justify-content-end'}>
-                                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('increase widgetOrder')}>
-                                        <FontAwesomeIcon icon={faArrowUp}/>
-                                    </button>
-
-                                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('decrease widgetOrder')}>
-                                        <FontAwesomeIcon icon={faArrowDown}/>
-                                    </button>
-                                    <div className={'d-inline-block mr-1'}>
-                                        <select className="custom-select form-inline " onChange={() => console.log("Changed widget type")}>
-                                            <option selected value="HEADING">Heading</option>
-                                            <option value="PARAGRAPH">Paragraph</option>
-                                        </select>
-                                    </div>
-                                    <button className={"btn btn-danger"} onClick={() => console.log('delete widget')}>
-                                        <FontAwesomeIcon icon={faTimes}/>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
+                        {this.widgetMetaRow}
 
                         <div className={'row p-1'}>
                             <input className={'form-control'}
@@ -98,33 +101,7 @@ class WidgetEditComponent extends React.Component {
 
                     <div className={'m-2'}>
 
-                        <div className={"row p-1"}>
-                            <div className={"col-4"}>
-                                <h3>{this.props.widget.name}</h3>
-                            </div>
-
-                            <div className={"col-8"}>
-                                <div className={'row justify-content-end'}>
-                                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('increase widgetOrder')}>
-                                        <FontAwesomeIcon icon={faArrowUp}/>
-                                    </button>
-
-                                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('decrease widgetOrder')}>
-                                        <FontAwesomeIcon icon={faArrowDown}/>
-                                    </button>
-                                    <div className={'d-inline-block mr-1'}>
-                                        <select className="custom-select form-inline " onChange={() => console.log("Changed widget type")}>
-                                            <option value="HEADING">Heading</option>
-                                            <option selected value="PARAGRAPH">Paragraph</option>
-                                        </select>
-                                    </div>
-                                    <button className={"btn btn-danger"} onClick={() => console.log('delete widget')}>
-                                        <FontAwesomeIcon icon={faTimes}/>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
+                        {this.widgetMetaRow}
 
                         <div className={'row p-1'}>
                             <input className={'form-control'}
