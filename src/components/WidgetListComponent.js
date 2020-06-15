@@ -3,6 +3,22 @@ import WidgetEditComponent from "./WidgetEditComponent";
 
 class WidgetListComponent extends React.Component {
 
+    exampleWidget =  {
+        id: '5ee7f9f3a8454d00175d978b',
+        name: 'Widget name!',
+        type: 'HEADING',
+        widgetOrder: '1000',
+        text: 'Big Heading',
+        url: 'http://example.com',
+        size: '1',
+        width: 0,
+        height: 0,
+        cssClass: '',
+        style: '',
+        value: '',
+        topicId: 'abc'
+    };
+
 
     render = () => (
         <div className={'col-12 p-0'}>
@@ -21,7 +37,8 @@ class WidgetListComponent extends React.Component {
                 </div>
             }
             {
-                this.props.widgets.map((widget, i) =>
+                //this.props.widgets.map((widget, i) =>
+                [this.exampleWidget].map((widget, i) =>
                     <WidgetEditComponent widget={widget}/>
                 )
             }

@@ -16,7 +16,7 @@ class ModuleListComponent extends React.Component {
     render = () => {
         return(
             <div>
-                <h1>Modules ({this.props.modules.length})</h1>
+                <span>Modules ({this.props.modules.length})</span>
 
                 <div className="list-group ml-2 mr-2 wbdv-module-list">
                     {

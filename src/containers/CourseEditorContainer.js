@@ -45,6 +45,7 @@ class CourseEditorContainer extends React.Component {
                     </div>
 
                     <div className="row mt-2">
+                        <span>Widgets</span>
                         <WidgetListComponent widgets={[]}/>
                     </div>
                 </div>
