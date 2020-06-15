@@ -6,6 +6,7 @@ import {findCourseById} from "../services/CourseService";
 import {findModulesForCourse} from "../services/ModuleService";
 import {findLessonsForModule} from "../services/LessonService";
 import ModuleListContainer from "./ModuleListContainer";
+import WidgetListComponent from "../components/WidgetListComponent";
 
 class CourseEditorContainer extends React.Component {
 
@@ -34,11 +35,17 @@ class CourseEditorContainer extends React.Component {
                 </div>
                 <div className="col-8">
                     <div className="row">
-                        {/*<LessonTabsComponent/>*/}
+                        <span>Lessons</span>
+                        <LessonTabsComponent lessons={[]}/>
                     </div>
 
                     <div className="row mt-2">
-                        {/*<TopicPillsComponent/>*/}
+                        <span>Topics</span>
+                        <TopicPillsComponent topics={[]}/>
+                    </div>
+
+                    <div className="row mt-2">
+                        <WidgetListComponent widgets={[]}/>
                     </div>
                 </div>
             </div>

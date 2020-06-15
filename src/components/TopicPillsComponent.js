@@ -7,7 +7,7 @@ const TopicPillsComponent = ({topics}) =>
         {
             topics.map((topic, i) =>
                 <li className="nav-item wbdv-topic-pill mr-1">
-                    <button className="btn nav-link active" href="#">{topic.title}</button>
+                    <button className="btn nav-link active">{topic.title}</button>
                 </li>
             )
         }
