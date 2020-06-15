@@ -1,6 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp, faTimes} from "@fortawesome/free-solid-svg-icons";
+import WidgetViewComponent from "./WidgetViewComponent";
 
 class WidgetEditComponent extends React.Component {
 
@@ -28,7 +29,7 @@ class WidgetEditComponent extends React.Component {
                     <div className={"row"}>
                         <div className={"col-4"}>
                             <span>
-                                <h1>{this.props.widget.name} widget</h1>
+                                <h3>{this.props.widget.name} widget</h3>
                             </span>
 
                         </div>
@@ -71,6 +72,14 @@ class WidgetEditComponent extends React.Component {
                                placeholder={'Widget name'}
                                onChange={(e) => console.log(`Changed widget name value: ${e.target.value}`)}
                         />
+                    </div>
+
+                    <div className={'row'}>
+                        <h3>Preview</h3>
+                    </div>
+
+                    <div className={'row'}>
+                        <WidgetViewComponent widget={this.props.widget}/>
                     </div>
 
                 </div>
