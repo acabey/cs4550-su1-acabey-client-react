@@ -45,8 +45,7 @@ class WidgetViewComponent extends React.Component {
             }
 
             case 'PARAGRAPH' : {
-                return <div></div>
-
+                return <p>{this.props.widget.text}</p>
             }
 
             default : {
