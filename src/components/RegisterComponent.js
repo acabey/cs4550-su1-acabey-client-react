@@ -1,8 +1,29 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const RegisterComponent = () => {
-    return (
+class RegisterComponent extends React.Component {
+
+    state = {
+        username: '',
+        password: ''
+    }
+    register = () => {
+        fetch("http://localhost:8080/api/login", {
+            body: JSON.stringify({username: this.state.username, password: this.state.password}),
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',
+            credentials: "include"
+        }).then(response => response.json())
+            .then(currentUser => {
+                if(currentUser)
+                    this.props.history.push("/profile")
+            })
+
+    }
+
+    render = () => (
         <div class="container">
             <h1>Register</h1>
 

@@ -5,7 +5,7 @@ class WidgetListComponent extends React.Component {
 
 
     render = () => (
-        <div className={'border'}>
+        <div>
             {
                 // Save and preview items
             }

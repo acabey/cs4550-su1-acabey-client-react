@@ -24,7 +24,7 @@ class WidgetEditComponent extends React.Component {
 
         switch (this.props.widget.type) {
             case 'HEADING': {
-                return <div>
+                return <div className={'border'}>
 
                     <div className={"row"}>
                         <div className={"col-4"}>
