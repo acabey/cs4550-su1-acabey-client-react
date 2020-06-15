@@ -24,29 +24,41 @@ class WidgetEditComponent extends React.Component {
 
         switch (this.props.widget.type) {
             case 'HEADING': {
-                return <div className={'border'}>
+                return <div className={'col-12 border'}>
 
                     <div className={"row"}>
-                        <div className={"col-4"}>
+                        <div className={"col-6 col-md-8"}>
                             <span>
-                                <h3>{this.props.widget.name} widget</h3>
+                                <h3>{this.props.widget.name}</h3>
                             </span>
 
                         </div>
 
-                        <div className={"col-4 "}></div>
+                        <div className={"col-6 col-md-4"}>
+                            <div className={'row'}>
+                                <div className={'col-4 p-0'}>
+                                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('increase widgetOrder')}>
+                                        <FontAwesomeIcon icon={faArrowUp}/>
+                                    </button>
 
-                        <div className={"col-4"}>
-                            <FontAwesomeIcon icon={faArrowUp} className={"btn btn-warning"} onClick={() => console.log('increase widgetOrder')}/>
-                            <FontAwesomeIcon icon={faArrowDown} className={"btn btn-warning"} onClick={() => console.log('decrease widgetOrder')}/>
-
-                            <select className="custom-select" onChange={() => console.log("Changed widget type")}>
-                                <option selected value="HEADING">Heading</option>
-                                <option value="PARAGRAPH">Paragraph</option>
-                            </select>
-
-                            <FontAwesomeIcon icon={faTimes} className={"btn btn-danger"} onClick={() => console.log('decrease widgetOrder')}/>
+                                    <button className={"btn btn-warning mr-1"} onClick={() => console.log('decrease widgetOrder')}>
+                                        <FontAwesomeIcon icon={faArrowDown}/>
+                                    </button>
+                                </div>
+                                <div className={'col-6 p-0'}>
+                                    <select className="custom-select form-inline d-inline-block mr-1" onChange={() => console.log("Changed widget type")}>
+                                        <option selected value="HEADING">Heading</option>
+                                        <option value="PARAGRAPH">Paragraph</option>
+                                    </select>
+                                </div>
+                                <div className={'col-2 p-0 pl-2'}>
+                                    <button className={"btn btn-danger"} onClick={() => console.log('delete widget')}>
+                                        <FontAwesomeIcon icon={faTimes}/>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                     <div className={'row'}>
