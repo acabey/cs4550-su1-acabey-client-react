@@ -40,7 +40,6 @@ const moduleReducer = (state=initialState, event) => {
             };
             break
         case "SELECT_MODULE":
-            console.log('select in reducer');
             return {
                 ...state,
                selectedModuleId: event.moduleId

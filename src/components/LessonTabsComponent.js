@@ -47,6 +47,7 @@ class LessonTabsComponent extends React.Component {
                         selectLesson={this.selectLesson}
                         selectedLessonId={this.props.selectedLessonId}
                         updateLesson={this.props.updateLesson}
+                        deleteLesson={this.props.deleteLesson}
                         key={lesson._id}/>)
             }
             <li className="nav-item">

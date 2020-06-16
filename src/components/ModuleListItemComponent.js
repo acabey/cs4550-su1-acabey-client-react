@@ -7,7 +7,6 @@ class ModuleListItemComponent extends React.Component {
 
     state = {
         isEditing: false,
-        editingModule: {}
     };
 
     componentDidMount() {
