@@ -23,7 +23,7 @@ class LessonTabsComponent extends React.Component {
         }
     };
 
-    createModule = () => {
+    createLesson = () => {
         if (!this.props.match.params.moduleId) {
             return;
         }
@@ -33,15 +33,26 @@ class LessonTabsComponent extends React.Component {
             });
     };
 
+    selectLesson = (lessonId) => {
+        this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${lessonId}`);
+        this.props.selectLesson(lessonId);
+    };
+
     render = () => (
         <ul className="nav nav-tabs wbdv-lesson-tabs">
             {
-                this.props.lessons.map((lesson, i) => <LessonTabItemComponent lesson={lesson} key={lesson._id}/>)
+                this.props.lessons.map((lesson, i) =>
+                    <LessonTabItemComponent
+                        lesson={lesson}
+                        selectLesson={this.selectLesson}
+                        selectedLessonId={this.props.selectedLessonId}
+                        updateLesson={this.props.updateLesson}
+                        key={lesson._id}/>)
             }
             <li className="nav-item">
                 <button
                     className="btn wbdv-lessons-add-btn"
-                    onClick={this.createModule}>
+                    onClick={this.createLesson}>
                     <FontAwesomeIcon icon={faPlus}/>
                 </button>
             </li>
