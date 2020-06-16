@@ -1,5 +1,6 @@
 const initialState = {
-    topics: []
+    topics: [],
+    selectedTopicId: ''
 };
 
 const topicReducer = (state=initialState, event) => {
