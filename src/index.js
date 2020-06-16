@@ -6,14 +6,15 @@ import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {Provider} from "react-redux";
+import {combineReducers, createStore} from "redux";
 import moduleReducer from "./reducers/moduleReducer";
 import lessonReducer from "./reducers/lessonReducer";
-import {combineReducers, createStore} from "redux";
 import topicReducer from "./reducers/topicReducer";
-import {Provider} from "react-redux";
+import widgetReducer from "./reducers/widgetReducer";
 
 const reducers = combineReducers({
-    moduleReducer, lessonReducer, topicReducer
+    moduleReducer, lessonReducer, topicReducer, widgetReducer
 });
 
 const store = createStore(reducers);
