@@ -35,3 +35,12 @@ export const deleteWidget= (widgetId) =>
         method: 'DELETE'
     })
         .then(response => response.json());
+
+
+export default {
+    createWidget,
+    findWidgetsForTopic,
+    findWidget,
+    updateWidget,
+    deleteWidget
+}
