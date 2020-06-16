@@ -19,10 +19,10 @@ class ModuleListComponent extends React.Component {
 
     render = () => {
         return(
-            <div>
+            <div className={'mr-2'}>
                 <span>Modules ({this.props.modules.length})</span>
 
-                <div className="list-group ml-2 mr-2 wbdv-module-list">
+                <div className="list-group rbdv-module-list">
                     {
                         this.props.modules.map((module, i) =>
                             <ModuleListItemComponent
