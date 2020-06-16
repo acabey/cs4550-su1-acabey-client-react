@@ -20,6 +20,14 @@ class CourseEditorContainer extends React.Component {
         })
     };
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        findCourseById(this.props.match.params.courseId).then(course => {
+            this.setState({
+                course: course
+            });
+        })
+    }
+
     render = () =>
         <div className="container-fluid">
 
@@ -35,12 +43,14 @@ class CourseEditorContainer extends React.Component {
                 <div className="col-8">
                     <div className="row">
                         <span>Lessons</span>
-                        <LessonTabsComponent lessons={[]}/>
+                        <LessonTabsComponent
+                            moduleId={this.state.selectedModule}/>
                     </div>
 
                     <div className="row mt-2">
                         <span>Topics</span>
-                        <TopicPillsComponent topics={[]}/>
+                        <TopicPillsComponent
+                            topics={[]}/>
                     </div>
 
                     <div className="row mt-2">
