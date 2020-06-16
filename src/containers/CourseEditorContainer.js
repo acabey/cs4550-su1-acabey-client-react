@@ -27,7 +27,10 @@ class CourseEditorContainer extends React.Component {
 
             <div className="row">
                 <div className="col-4">
-                    <ModuleListContainer course={this.state.course} match={this.props.match} history={this.props.history}/>
+                    <ModuleListContainer
+                        course={this.state.course}
+                        match={this.props.match}
+                        history={this.props.history}/>
                 </div>
                 <div className="col-8">
                     <div className="row">

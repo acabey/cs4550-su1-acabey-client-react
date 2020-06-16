@@ -35,7 +35,10 @@ class ModuleListComponent extends React.Component {
                                 module={module}
                                 updateModule={this.props.updateModule}
                                 deleteModule={this.props.deleteModule}
-                                selectModule={this.props.selectModule}
+                                selectModule={(moduleId) => {
+                                    this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${moduleId}`);
+                                    this.props.selectModule(moduleId);
+                                }}
                                 selectedModuleId={this.props.selectedModuleId}
                                 course={this.props.course}
                                 key={module._id}
