@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import LessonListComponent from "../components/LessonListComponent";
+import LessonTabsComponent from "../components/LessonTabsComponent";
 import lessonReducer from "../reducers/lessonReducer";
 import LessonService from "../services/LessonService";
 
@@ -57,8 +57,8 @@ const dispatchToPropertyMapper = (dispatch) => {
     }
 };
 
-const LessonListContainer = connect
+const LessonTabsContainer = connect
 (stateToPropertyMapper, dispatchToPropertyMapper)
-(LessonListComponent);
+(LessonTabsComponent);
 
-export default LessonListContainer
+export default LessonTabsContainer

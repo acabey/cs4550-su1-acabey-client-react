@@ -8,7 +8,6 @@ class ModuleListComponent extends React.Component {
 
     state = {
         newModuleTitle: 'New Module',
-        editingModule: {_id : null}
     };
 
 

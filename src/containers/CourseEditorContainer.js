@@ -5,6 +5,7 @@ import CourseEditorNavComponent from "../components/CourseEditorNavComponent";
 import {findCourseById} from "../services/CourseService";
 import ModuleListContainer from "./ModuleListContainer";
 import WidgetListComponent from "../components/WidgetListComponent";
+import LessonTabsContainer from "./LessonTabsContainer";
 
 class CourseEditorContainer extends React.Component {
 
@@ -43,19 +44,23 @@ class CourseEditorContainer extends React.Component {
                 <div className="col-8">
                     <div className="row">
                         <span>Lessons</span>
-                        <LessonTabsComponent
-                            moduleId={this.state.selectedModule}/>
+                        <LessonTabsContainer
+                            match={this.props.match}
+                            history={this.props.history}/>
                     </div>
 
                     <div className="row mt-2">
                         <span>Topics</span>
                         <TopicPillsComponent
-                            topics={[]}/>
+                            match={this.props.match}
+                            history={this.props.history}/>
                     </div>
 
                     <div className="row mt-2">
                         <span>Widgets</span>
-                        <WidgetListComponent widgets={[]}/>
+                        <WidgetListComponent
+                            match={this.props.match}
+                            history={this.props.history}/>
                     </div>
                 </div>
             </div>
