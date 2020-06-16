@@ -31,7 +31,7 @@ class LessonTabsComponent extends React.Component {
             <li className="nav-item">
                 <button
                     className="btn wbdv-lessons-add-btn"
-                    onClick={this.props.createLesson()}>
+                    onClick={this.props.createLesson}>
                     <FontAwesomeIcon icon={faPlus}/>
                 </button>
             </li>

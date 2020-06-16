@@ -1,9 +1,5 @@
 const initialState = {
-    topics: [
-        {_id: '123', title: 'topic 123'},
-        {_id: '234', title: 'topic 234'},
-        {_id: '345', title: 'topic 345'}
-    ]
+    topics: []
 };
 
 const topicReducer = (state=initialState, event) => {
@@ -33,7 +29,7 @@ const topicReducer = (state=initialState, event) => {
         case "FIND_TOPICS_FOR_LESSON":
             return {
                 ...state,
-                topics: event.actualTopics
+                topics: event.topics
             };
         default:
             return state

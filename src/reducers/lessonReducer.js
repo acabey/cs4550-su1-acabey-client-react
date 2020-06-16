@@ -1,9 +1,5 @@
 const initialState = {
-    lessons: [
-        {_id: '123', title: 'lesson 123'},
-        {_id: '234', title: 'lesson 234'},
-        {_id: '345', title: 'lesson 345'}
-    ]
+    lessons: [],
 };
 
 const lessonReducer = (state=initialState, event) => {
@@ -33,7 +29,7 @@ const lessonReducer = (state=initialState, event) => {
         case "FIND_LESSONS_FOR_MODULE":
             return {
                 ...state,
-                lessons: event.actualLessons
+                lessons: event.lessons
             };
         default:
             return state

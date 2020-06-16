@@ -6,7 +6,6 @@ import LessonService from "../services/LessonService";
 const stateToPropertyMapper = (state, ownProps) => {
     return {
         lessons: state.lessonReducer.lessons,
-        selectedLessonId: state.lessonReducer.selectedLessonId,
         params: ownProps.params,
     }
 };
