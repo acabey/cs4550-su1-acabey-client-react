@@ -23,6 +23,16 @@ class LessonTabsComponent extends React.Component {
         }
     };
 
+    createModule = () => {
+        if (!this.props.match.params.moduleId) {
+            return;
+        }
+        this.props.createLesson(
+            this.props.match.params.moduleId, {
+                title: this.state.newLessonTitle
+            });
+    };
+
     render = () => (
         <ul className="nav nav-tabs wbdv-lesson-tabs">
             {
@@ -31,7 +41,7 @@ class LessonTabsComponent extends React.Component {
             <li className="nav-item">
                 <button
                     className="btn wbdv-lessons-add-btn"
-                    onClick={this.props.createLesson}>
+                    onClick={this.createModule}>
                     <FontAwesomeIcon icon={faPlus}/>
                 </button>
             </li>
