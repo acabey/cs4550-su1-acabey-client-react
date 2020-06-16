@@ -36,3 +36,11 @@ export const deleteTopic= (topicId) =>
         method: 'DELETE'
     })
         .then(response => response.json());
+
+export default {
+    createTopic,
+    findTopicsForLesson,
+    findTopic,
+    updateTopic,
+    deleteTopic,
+}
