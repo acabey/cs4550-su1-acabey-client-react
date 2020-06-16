@@ -17,14 +17,12 @@ const moduleReducer = (state=initialState, event) => {
                 modules: event.modules
             };
         case "FIND_ALL_MODULES":
-            console.log(event.modules)
             return {
                 ...state,
                 modules: event.modules
             };
             break
         case "CREATE_MODULE":
-            console.log("Create module reducer");
             return {
                 modules: [
                     ...state.modules,

@@ -3,24 +3,20 @@ import LessonTabsComponent from "../components/LessonTabsComponent";
 import TopicPillsComponent from "../components/TopicPillsComponent";
 import CourseEditorNavComponent from "../components/CourseEditorNavComponent";
 import {findCourseById} from "../services/CourseService";
-import {findModulesForCourse} from "../services/ModuleService";
-import {findLessonsForModule} from "../services/LessonService";
 import ModuleListContainer from "./ModuleListContainer";
 import WidgetListComponent from "../components/WidgetListComponent";
 
 class CourseEditorContainer extends React.Component {
 
     state = {
-        course: {
-            title: 'Example Course'
-        },
+        course: {},
     };
 
     componentDidMount = () => {
         findCourseById(this.props.match.params.courseId).then(course => {
             this.setState({
                 course: course
-            })
+            });
         })
     };
 
@@ -31,7 +27,7 @@ class CourseEditorContainer extends React.Component {
 
             <div className="row">
                 <div className="col-4">
-                    <ModuleListContainer course={this.state.course}/>
+                    <ModuleListContainer course={this.state.course} match={this.props.match} history={this.props.history}/>
                 </div>
                 <div className="col-8">
                     <div className="row">

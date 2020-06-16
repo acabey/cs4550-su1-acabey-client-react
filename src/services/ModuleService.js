@@ -36,3 +36,11 @@ export const createModule = (courseId, module) =>
         }
     })
         .then(response => response.json());
+
+export default {
+    findAllModules,
+    deleteModule,
+    createModule,
+    updateModule,
+    findModulesForCourse
+}

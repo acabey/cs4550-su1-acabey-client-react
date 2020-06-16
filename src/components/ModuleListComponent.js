@@ -4,13 +4,17 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 class ModuleListComponent extends React.Component {
-    state = {
-        newModuleTitle: 'New Module',
-        editingModule: {_id : null}
-    };
+
+    constructor(props){
+        super(props);
+        this.state = {
+            newModuleTitle: 'New Module',
+            editingModule: {_id : null}
+        };
+    }
 
     componentDidMount = () => {
-        this.props.findModulesForCourse(this.props.course._id);
+        this.props.findModulesForCourse(this.props.match.params.courseId)
     };
 
     render = () => {
@@ -26,6 +30,7 @@ class ModuleListComponent extends React.Component {
                                 updateModule={this.props.updateModule}
                                 deleteModule={this.props.deleteModule}
                                 course={this.props.course}
+                                key={module._id}
                                 i={i}/>)
                     }
                     <div className="row list-group-item bg-transparent ">

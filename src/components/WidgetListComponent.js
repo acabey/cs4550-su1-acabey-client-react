@@ -56,7 +56,7 @@ class WidgetListComponent extends React.Component {
             {
                 //this.props.widgets.map((widget, i) =>
                 this.exampleWidgets.map((widget, i) =>
-                    <WidgetEditComponent widget={widget}/>
+                    <WidgetEditComponent widget={widget} key={widget._id}/>
                 )
             }
             {

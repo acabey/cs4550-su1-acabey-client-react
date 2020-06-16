@@ -14,7 +14,6 @@ class ProfileComponent extends React.Component {
             credentials: "include"
         })
             .then(response => {
-                console.log(response)
                 return response.json()
             })
             .catch(e => {
