@@ -69,3 +69,11 @@ export const updateLesson = (lessonId, lesson) =>
             }
         })
         .then(response => response.json())
+
+export default {
+    findLessonsForModule,
+    createLesson,
+    deleteLesson,
+    findLesson,
+    updateLesson
+}
