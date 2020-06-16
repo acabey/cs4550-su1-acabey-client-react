@@ -1,59 +1,58 @@
 import {connect} from "react-redux";
-import ModuleListComponent from "../components/ModuleListComponent";
-import moduleReducer from "../reducers/moduleReducer";
-import ModuleService from "../services/ModuleService";
+import WidgetListComponent from "../components/WidgetListComponent";
+import widgetReducer from "../reducers/widgetReducer";
+import WidgetService from "../services/WidgetService";
 
 const stateToPropertyMapper = (state, ownProps) => {
     return {
-        modules: state.moduleReducer.modules,
-        editingModule: state.moduleReducer.editingModule,
+        widgets: state.widgetReducer.widgets,
+        editingWidget: state.widgetReducer.editingWidget,
         params: ownProps.params,
-        // ownProps: ownProps
     }
 };
 
 const dispatchToPropertyMapper = (dispatch) => {
     return {
-        findModulesForCourse: (courseId) =>  {
-            ModuleService.findModulesForCourse(courseId)
-                .then(modulesForTheCourse => dispatch({
-                    type: 'FIND_MODULES_FOR_COURSE',
-                    modules: modulesForTheCourse
+        findWidgetsForTopic: (topicId) =>  {
+            WidgetService.findWidgetsForTopic(topicId)
+                .then(widgetsForTopic => dispatch({
+                    type: 'FIND_WIDGETS_FOR_TOPIC',
+                    widgets: widgetsForTopic
                 }))
         },
-        findAllModules: () => {
-            ModuleService.findAllModules()
-                .then(actualModules => dispatch({
-                    type: 'FIND_ALL_MODULES',
-                    modules: actualModules
+        findAllWidgets: () => {
+            WidgetService.findAllWidgets()
+                .then(actualWidgets => dispatch({
+                    type: 'FIND_ALL_WIDGETS',
+                    widgets: actualWidgets
                 }))
         },
-        updateModule: (moduleId, newModuleData) => {
-            ModuleService.updateModule(moduleId, newModuleData)
+        updateWidget: (widgetId, newWidgetData) => {
+            WidgetService.updateWidget(widgetId, newWidgetData)
                 .then(status => dispatch({
-                    type: 'UPDATE_MODULE',
-                    updatedModule: newModuleData
+                    type: 'UPDATE_WIDGET',
+                    updatedWidget: newWidgetData
                 }))
         },
-        createModule: (courseId, newModule) => {
-            ModuleService.createModule(courseId, newModule)
-                .then(actualNewModule => dispatch({
-                    type: "CREATE_MODULE",
-                    newModule: actualNewModule
+        createWidget: (topicId, newWidget) => {
+            WidgetService.createWidget(topicId, newWidget)
+                .then(actualNewWidget => dispatch({
+                    type: "CREATE_WIDGET",
+                    newWidget: actualNewWidget
                 }))
         },
-        deleteModule: (moduleId) => {
-            ModuleService.deleteModule(moduleId)
+        deleteWidget: (widgetId) => {
+            WidgetService.deleteWidget(widgetId)
                 .then(status => dispatch({
-                    type: "DELETE_MODULE",
-                    moduleId: moduleId
+                    type: "DELETE_WIDGET",
+                    widgetId: widgetId
                 }))
         }
     }
 };
 
-const ModuleListContainer = connect
+const WidgetListContainer = connect
 (stateToPropertyMapper, dispatchToPropertyMapper)
-(ModuleListComponent);
+(WidgetListComponent);
 
-export default ModuleListContainer
+export default WidgetListContainer

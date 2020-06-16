@@ -6,6 +6,7 @@ import ModuleService from "../services/ModuleService";
 const stateToPropertyMapper = (state, ownProps) => {
     return {
         modules: state.moduleReducer.modules,
+        selectedModuleId: state.moduleReducer.selectedModuleId,
         editingModule: state.moduleReducer.editingModule,
         params: ownProps.params,
         // ownProps: ownProps
@@ -48,6 +49,12 @@ const dispatchToPropertyMapper = (dispatch) => {
                     type: "DELETE_MODULE",
                     moduleId: moduleId
                 }))
+        },
+        selectModule: (moduleId) => {
+            dispatch({
+                type: "SELECT_MODULE",
+                moduleId: moduleId
+            })
         }
     }
 };

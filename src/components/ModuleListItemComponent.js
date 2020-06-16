@@ -18,14 +18,18 @@ class ModuleListItemComponent extends React.Component {
     }
 
     render = () =>
-        <div className="row list-group-item wbdv-module-item">
+        <div
+            className={`row list-group-item wbdv-module-item 
+            ${this.props.selectedModuleId === this.props.module._id ? 'bg-primary' : ''}`}
+        >
             {
                 !this.state.isEditing &&
-                <div>
-                    <Link className="wbdv-module-item-title text-black"
-                          to={`/editor/${this.props.course._id}/modules/${this.props.module._id}`}>
-                        {this.props.module.title}
-                    </Link>
+                <div onClick={() => this.props.selectModule(this.props.module._id)}>
+                    <div className={'d-inline-block'}>
+                        <h5 className="font-weight-bold  wbdv-module-item-title ">
+                            {this.props.module.title}
+                        </h5>
+                    </div>
 
                     <div className={"float-right"}>
 

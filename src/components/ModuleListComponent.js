@@ -5,22 +5,28 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 class ModuleListComponent extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            newModuleTitle: 'New Module',
-            editingModule: {_id : null}
-        };
-    }
+
+    state = {
+        newModuleTitle: 'New Module',
+        editingModule: {_id : null}
+    };
+
 
     componentDidMount = () => {
         this.props.findModulesForCourse(this.props.match.params.courseId)
     };
 
+
+    componentDidUpdate = (prevProps, prevState, snapshot) => {
+        if(prevProps.match.params.courseId!== this.props.match.params.courseId) {
+            this.props.findModulesForCourse(this.props.match.params.courseId)
+        }
+    };
+
     render = () => {
         return(
             <div className={'mr-2'}>
-                <span>Modules ({this.props.modules.length})</span>
+                <span>Modules</span>
 
                 <div className="list-group rbdv-module-list">
                     {
@@ -29,6 +35,8 @@ class ModuleListComponent extends React.Component {
                                 module={module}
                                 updateModule={this.props.updateModule}
                                 deleteModule={this.props.deleteModule}
+                                selectModule={this.props.selectModule}
+                                selectedModuleId={this.props.selectedModuleId}
                                 course={this.props.course}
                                 key={module._id}
                                 i={i}/>)

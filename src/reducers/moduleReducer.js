@@ -1,5 +1,7 @@
 const initialState = {
     modules: [],
+    selectedModule: '',
+    editingModule: ''
 };
 
 const moduleReducer = (state=initialState, event) => {
@@ -24,6 +26,7 @@ const moduleReducer = (state=initialState, event) => {
             break
         case "CREATE_MODULE":
             return {
+                ...state,
                 modules: [
                     ...state.modules,
                     event.newModule
@@ -32,9 +35,17 @@ const moduleReducer = (state=initialState, event) => {
             break
         case "DELETE_MODULE":
             return {
+                ...state,
                 modules: state.modules.filter(module => module._id !== event.moduleId)
             };
             break
+        case "SELECT_MODULE":
+            console.log('select in reducer');
+            return {
+                ...state,
+               selectedModuleId: event.moduleId
+            };
+            break;
         default:
             return state
     }
