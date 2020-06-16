@@ -24,11 +24,13 @@ class CourseEditorContainer extends React.Component {
     };
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        findCourseById(this.props.match.params.courseId).then(course => {
-            this.setState({
-                course: course
+        if (prevProps.match.params.courseId !== this.props.match.params.courseId) {
+            findCourseById(this.props.match.params.courseId).then(course => {
+                this.setState({
+                    course: course
+                });
             });
-        })
+        }
     }
 
     render = () =>
