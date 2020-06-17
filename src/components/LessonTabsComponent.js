@@ -33,6 +33,11 @@ class LessonTabsComponent extends React.Component {
             });
     };
 
+    deleteLesson = (lessonId) => {
+        this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}`);
+        this.props.deleteLesson(lessonId);
+    };
+
     selectLesson = (lessonId) => {
         this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${lessonId}`);
         this.props.selectLesson(lessonId);
@@ -47,7 +52,7 @@ class LessonTabsComponent extends React.Component {
                         selectLesson={this.selectLesson}
                         selectedLessonId={this.props.selectedLessonId}
                         updateLesson={this.props.updateLesson}
-                        deleteLesson={this.props.deleteLesson}
+                        deleteLesson={this.deleteLesson}
                         key={lesson._id}/>)
             }
             <li className="nav-item">

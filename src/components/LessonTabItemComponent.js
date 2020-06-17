@@ -14,9 +14,9 @@ class LessonTabItemComponent extends React.Component {
             {
                 !this.state.isEditing &&
                 <div
-                    className={`nav-link ${this.props.selectedLessonId === this.props.lesson._id && 'bg-primary'}`}
-                    onClick={() => this.props.selectLesson(this.props.lesson._id)}>
-                    <strong>{this.props.lesson.title}</strong>
+                    className={`nav-link ${this.props.selectedLessonId === this.props.lesson._id && 'bg-primary'}`}>
+                    <strong className={'h-100'}
+                            onClick={() => this.props.selectLesson(this.props.lesson._id)}>{this.props.lesson.title}</strong>
 
                     <button
                         className="btn wbdv-lesson-item-edit-btn"
@@ -38,8 +38,7 @@ class LessonTabItemComponent extends React.Component {
             {
                 this.state.isEditing &&
                 <div
-                    className={`nav-link ${this.props.selectedLessonId === this.props.lesson._id && 'bg-primary'}`}
-                    onClick={() => this.props.selectLesson(this.props.lesson._id)}>
+                    className={`nav-link ${this.props.selectedLessonId === this.props.lesson._id && 'bg-primary'}`}>
 
                     <input
                         onChange={(e) => {
