@@ -12,13 +12,26 @@ class ModuleListComponent extends React.Component {
 
 
     componentDidMount = () => {
-        this.props.findModulesForCourse(this.props.match.params.courseId)
+        if (this.props.match.params.courseId) {
+            this.props.findModulesForCourse(this.props.match.params.courseId)
+        }
     };
 
 
     componentDidUpdate = (prevProps, prevState, snapshot) => {
         if(prevProps.match.params.courseId!== this.props.match.params.courseId) {
             this.props.findModulesForCourse(this.props.match.params.courseId)
+        }
+    };
+
+    deleteModule = (moduleId) => {
+        this.props.history.push(`/editor/${this.props.match.params.courseId}`);
+        this.props.deleteModule(moduleId);
+    };
+
+    selectModule = (moduleId) => {
+        if (moduleId !== this.props.match.params.moduleId) {
+            this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${moduleId}`);
         }
     };
 
@@ -33,12 +46,9 @@ class ModuleListComponent extends React.Component {
                             <ModuleListItemComponent
                                 module={module}
                                 updateModule={this.props.updateModule}
-                                deleteModule={this.props.deleteModule}
-                                selectModule={(moduleId) => {
-                                    this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${moduleId}`);
-                                    this.props.selectModule(moduleId);
-                                }}
-                                selectedModuleId={this.props.selectedModuleId}
+                                deleteModule={this.deleteModule}
+                                selectModule={this.selectModule}
+                                selectedModuleId={this.props.match.params.moduleId}
                                 course={this.props.course}
                                 key={module._id}
                                 i={i}/>)

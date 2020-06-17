@@ -23,8 +23,9 @@ class ModuleListItemComponent extends React.Component {
         >
             {
                 !this.state.isEditing &&
-                <div onClick={() => this.props.selectModule(this.props.module._id)}>
-                    <div className={'d-inline-block'}>
+                <div>
+                    <div className={'d-inline-block'}
+                         onClick={() => this.props.selectModule(this.props.module._id)}>
                         <h5 className="font-weight-bold  wbdv-module-item-title ">
                             {this.props.module.title}
                         </h5>

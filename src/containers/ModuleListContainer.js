@@ -50,12 +50,6 @@ const dispatchToPropertyMapper = (dispatch) => {
                     moduleId: moduleId
                 }))
         },
-        selectModule: (moduleId) => {
-            dispatch({
-                type: "SELECT_MODULE",
-                moduleId: moduleId
-            })
-        }
     }
 };
 

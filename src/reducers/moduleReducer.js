@@ -1,7 +1,5 @@
 const initialState = {
     modules: [],
-    selectedModule: '',
-    editingModule: ''
 };
 
 const moduleReducer = (state=initialState, event) => {
@@ -39,12 +37,6 @@ const moduleReducer = (state=initialState, event) => {
                 modules: state.modules.filter(module => module._id !== event.moduleId)
             };
             break
-        case "SELECT_MODULE":
-            return {
-                ...state,
-               selectedModuleId: event.moduleId
-            };
-            break;
         default:
             return state
     }
