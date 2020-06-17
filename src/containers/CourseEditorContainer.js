@@ -4,7 +4,7 @@ import TopicPillsComponent from "../components/TopicPillsComponent";
 import CourseEditorNavComponent from "../components/CourseEditorNavComponent";
 import {findCourseById} from "../services/CourseService";
 import ModuleListContainer from "./ModuleListContainer";
-import WidgetListComponent from "../components/WidgetListComponent";
+import WidgetList from "../components/WidgetList";
 import LessonTabsContainer from "./LessonTabsContainer";
 import TopicPillsContainer from "./TopicPillsContainer";
 import WidgetListContainer from "./WidgetListContainer";

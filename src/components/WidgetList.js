@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import WidgetViewComponent from "./WidgetViewComponent";
 
-class WidgetListComponent extends React.Component {
+class WidgetList extends React.Component {
 
     state = {
         isPreview: false
@@ -87,4 +87,4 @@ class WidgetListComponent extends React.Component {
 
 }
 
-export default WidgetListComponent
+export default WidgetList
