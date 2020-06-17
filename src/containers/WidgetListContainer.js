@@ -29,9 +29,9 @@ const dispatchToPropertyMapper = (dispatch) => {
         },
         updateWidget: (widgetId, newWidgetData) => {
             WidgetService.updateWidget(widgetId, newWidgetData)
-                .then(status => dispatch({
+                .then(updatedWidget => dispatch({
                     type: 'UPDATE_WIDGET',
-                    updatedWidget: newWidgetData
+                    updatedWidget: updatedWidget
                 }))
         },
         createWidget: (topicId, newWidget) => {

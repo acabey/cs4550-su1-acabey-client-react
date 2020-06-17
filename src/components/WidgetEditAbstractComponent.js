@@ -20,6 +20,8 @@ class WidgetEditAbstractComponent extends React.Component {
     };
 
     updateWidget = () => {
+        console.log("updated widget");
+        console.log(this.state);
         this.props.updateWidget(this.props.widget.id,
             {
                 name: this.state.updatedName,
@@ -62,7 +64,10 @@ class WidgetEditAbstractComponent extends React.Component {
                     </button>
                     <div className={'d-inline-block mr-1'}>
                         <select className="custom-select form-inline"
-                                onChange={(e) => this.setState({updatedType: e.target.value})}
+                                onChange={(e) => this.props.updateWidget(this.props.widget.id, {
+                                    ...this.props.widget,
+                                    type: e.target.value
+                                })}
                                 value={this.state.updatedType}>
                             <option value="HEADING">Heading</option>
                             <option value="PARAGRAPH">Paragraph</option>
