@@ -14,17 +14,17 @@ const widgetReducer = (state=initialState, event) => {
             break
         case "DELETE_WIDGET":
             return {
-                widgets: state.widgets.filter(widget => widget._id !== event.widgetId)
+                widgets: state.widgets.filter(widget => widget.id !== event.widgetId)
             };
             break
         case "UPDATE_WIDGET":
             return {
                 ...state,
                 widgets: state.widgets.map(
-                    widget => widget._id === event.updatedWidget._id ?
+                    widget => widget.id === event.updatedWidget.id ?
                         event.updatedWidget : widget )
             };
-        case "FIND_WIDGETS_FOR_COURSE":
+        case "FIND_WIDGETS_FOR_TOPIC":
             return {
                 ...state,
                 widgets: event.widgets
