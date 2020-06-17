@@ -1,41 +1,45 @@
 import React from "react";
 import WidgetEditComponent from "./WidgetEditComponent";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 
 class WidgetListComponent extends React.Component {
 
-    exampleWidgets =  [
-        {
-            id: '5ee7f9f3a8454d00175d978b',
-            name: 'Widget name!',
-            type: 'HEADING',
-            widgetOrder: '1000',
-            text: 'Big Heading',
-            url: 'http://example.com',
-            size: '1',
-            width: 0,
-            height: 0,
-            cssClass: '',
-            style: '',
-            value: '',
-            topicId: 'abc'
-        },
-        {
-            id: '5ee7f9f3a8454d00175d978c',
-            name: 'Widget name!',
-            type: 'PARAGRAPH',
-            widgetOrder: '1000',
-            text: 'Paragraoh',
-            url: 'http://example.com',
-            size: '1',
-            width: 0,
-            height: 0,
-            cssClass: '',
-            style: '',
-            value: '',
-            topicId: 'abc'
-        }
-    ];
+    state = {
+    };
 
+    componentDidMount = () => {
+        if (this.props.match.params.topicId) {
+            this.props.findWidgetsForTopic(this.props.match.params.topicId);
+        }
+    };
+
+
+    componentDidUpdate = (prevProps, prevState, snapshot) => {
+        if(prevProps.match.params.topicId !== this.props.match.params.topicId) {
+            this.props.findWidgetsForTopic(this.props.match.params.topicId)
+        }
+    };
+
+    createWidget = () => {
+        if (!this.props.match.params.topicId) {
+            return;
+        }
+        this.props.createWidget(
+            this.props.match.params.topicId, {
+                name: '',
+                type: 'HEADING',
+                widgetOrder: '1000',
+                text: '',
+                url: '',
+                size: '1',
+                width: 0,
+                height: 0,
+                cssClass: '',
+                style: '',
+                value: '',
+            });
+    };
 
     render = () => (
         <div className={'col-12 p-0 pr-2'}>
@@ -54,13 +58,15 @@ class WidgetListComponent extends React.Component {
                 </div>
             }
             {
-                //this.props.widgets.map((widget, i) =>
-                this.exampleWidgets.map((widget, i) =>
+                this.props.widgets.map((widget, i) =>
                     <WidgetEditComponent widget={widget} key={widget._id}/>
                 )
             }
             {
-                // Add widget button
+                <button className={'btn float-right'}
+                        onClick={this.createWidget}>
+                    <FontAwesomeIcon icon={faPlusCircle} size={'2x'} className={''}/>
+                </button>
             }
         </div>
     )

@@ -47,24 +47,39 @@ class CourseEditorContainer extends React.Component {
                 </div>
                 <div className="col-8">
                     <div className="row">
-                        <span>Lessons</span>
-                        <LessonTabsContainer
-                            match={this.props.match}
-                            history={this.props.history}/>
+                        {
+                            this.props.match.params.moduleId &&
+                            <>
+                                <span>Lessons</span>
+                                <LessonTabsContainer
+                                    match={this.props.match}
+                                    history={this.props.history}/>
+                            </>
+                        }
                     </div>
 
                     <div className="row mt-2">
-                        <span>Topics</span>
-                        <TopicPillsContainer
-                            match={this.props.match}
-                            history={this.props.history}/>
+                        {
+                            this.props.match.params.lessonId &&
+                            <>
+                                <span>Topics</span>
+                                <TopicPillsContainer
+                                    match={this.props.match}
+                                    history={this.props.history}/>
+                            </>
+                        }
                     </div>
 
                     <div className="row mt-2">
-                        <span>Widgets</span>
-                        <WidgetListContainer
-                            match={this.props.match}
-                            history={this.props.history}/>
+                        {
+                            this.props.match.params.topicId &&
+                            <>
+                                <span>Widgets</span>
+                                <WidgetListContainer
+                                    match={this.props.match}
+                                    history={this.props.history}/>
+                            </>
+                        }
                     </div>
                 </div>
             </div>
