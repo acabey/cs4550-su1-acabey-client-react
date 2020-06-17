@@ -1,5 +1,5 @@
-//const url = 'https://acabey-server-java.herokuapp.com/api';
-const url = 'http://localhost:8080/api';
+const url = 'https://acabey-server-java.herokuapp.com/api';
+//const url = 'http://localhost:8080/api';
 
 export const createWidget = (topicId, widget) =>
     fetch(`${url}/topics/${topicId}/widgets`, {

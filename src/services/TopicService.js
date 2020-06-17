@@ -1,5 +1,5 @@
-//const url = 'https://acabey-server-java.herokuapp.com/api';
-const url = 'http://localhost:8080/api';
+const url = 'https://acabey-server-java.herokuapp.com/api';
+//const url = 'http://localhost:8080/api';
 
 export const createTopic = (lessonId, topic) =>
     fetch(`${url}/lessons/${lessonId}/topics`, {
