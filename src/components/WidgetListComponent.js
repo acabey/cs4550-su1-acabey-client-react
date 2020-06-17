@@ -2,10 +2,12 @@ import React from "react";
 import WidgetEditComponent from "./WidgetEditComponent";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
+import WidgetViewComponent from "./WidgetViewComponent";
 
 class WidgetListComponent extends React.Component {
 
     state = {
+        isPreview: false
     };
 
     componentDidMount = () => {
@@ -52,20 +54,26 @@ class WidgetListComponent extends React.Component {
                 <div className={'row justify-content-end pr-2 pb-2'}>
                     <div className="btn-group btn-group-toggle d-inline-block mr-4" data-toggle="buttons">
                         <label className="btn btn-secondary active">
-                            <input type="radio" name="options" id="widgetEdit" autoComplete="off" checked/> Edit
+                            <input type="radio" name="options" id="widgetEdit" autoComplete="off"
+                                   defaultChecked={true}
+                                   onClick={() => this.setState({isPreview: false})}/> Edit
                         </label>
                         <label className="btn btn-secondary">
-                            <input type="radio" name="options" id="widgetPreview" autoComplete="off"/> Preview
+                            <input type="radio" name="options" id="widgetPreview" autoComplete="off"
+                                   onClick={() => this.setState({isPreview: true})}/> Preview
                         </label>
                     </div>
                 </div>
             }
             {
                 this.sortWidgets(this.props.widgets).map((widget, i) =>
-                    <WidgetEditComponent widget={widget}
-                                         deleteWidget={this.props.deleteWidget}
-                                         updateWidget={this.props.updateWidget}
-                                         key={widget.id}/>
+                    this.state.isPreview ?
+                        <WidgetViewComponent widget={widget} key={widget.id}/>
+                        :
+                        <WidgetEditComponent widget={widget}
+                                             deleteWidget={this.props.deleteWidget}
+                                             updateWidget={this.props.updateWidget}
+                                             key={widget.id}/>
                 )
             }
             {
