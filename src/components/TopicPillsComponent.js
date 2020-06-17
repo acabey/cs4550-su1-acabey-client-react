@@ -49,7 +49,7 @@ class TopicPillsComponent extends React.Component {
                         selectedTopicId={this.props.selectedTopicId}
                         updateTopic={this.props.updateTopic}
                         deleteTopic={this.props.deleteTopic}
-                        key={topic._id}/>
+                        key={topic.id}/>
                 )
             }
             <li className="nav-item">

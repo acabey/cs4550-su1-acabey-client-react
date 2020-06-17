@@ -14,8 +14,8 @@ class TopicPillsItemComponent extends React.Component {
             {
                 !this.state.isEditing &&
                 <div
-                    className={`nav-link ${this.props.selectedTopicId === this.props.topic._id && 'bg-primary'}`}
-                    onClick={() => this.props.selectTopic(this.props.topic._id)}>
+                    className={`nav-link ${this.props.selectedTopicId === this.props.topic.id && 'bg-primary'}`}
+                    onClick={() => this.props.selectTopic(this.props.topic.id)}>
                     <strong>{this.props.topic.title}</strong>
 
                     <button
@@ -29,7 +29,7 @@ class TopicPillsItemComponent extends React.Component {
 
                     <button
                         className="btn wbdv-topic-item-delete-btn"
-                        onClick={() => this.props.deleteTopic(this.props.topic._id)}>
+                        onClick={() => this.props.deleteTopic(this.props.topic.id)}>
                         <FontAwesomeIcon icon={faTimes}/>
                     </button>
                 </div>
@@ -38,8 +38,8 @@ class TopicPillsItemComponent extends React.Component {
             {
                 this.state.isEditing &&
                 <div
-                    className={`nav-link ${this.props.selectedTopicId === this.props.topic._id && 'bg-primary'}`}
-                    onClick={() => this.props.selectTopic(this.props.topic._id)}>
+                    className={`nav-link ${this.props.selectedTopicId === this.props.topic.id && 'bg-primary'}`}
+                    onClick={() => this.props.selectTopic(this.props.topic.id)}>
 
                     <input
                         onChange={(e) => {
@@ -56,7 +56,7 @@ class TopicPillsItemComponent extends React.Component {
                         className={"btn wbdv-topic-item-update-btn"}
                         onClick={() => {
                             this.props.updateTopic(
-                                this.props.topic._id,
+                                this.props.topic.id,
                                 {...this.props.topic, title: this.state.updatedTitle}
                             );
                             this.setState({isEditing: false})}}>

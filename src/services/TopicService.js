@@ -1,8 +1,7 @@
-const url = 'https://wbdv-generic-server.herokuapp.com/api';
-const nuid = '001867846';
+const url = 'https://acabey-server-java.herokuapp.com/api';
 
 export const createTopic = (lessonId, topic) =>
-    fetch(`${url}/${nuid}/lessons/${lessonId}/topics`, {
+    fetch(`${url}/lessons/${lessonId}/topics`, {
         method: 'POST',
         body: JSON.stringify(topic),
         headers: {
@@ -12,17 +11,17 @@ export const createTopic = (lessonId, topic) =>
         .then(response => response.json());
 
 export const findTopicsForLesson = (lessonId) =>
-    fetch(`${url}/${nuid}/lessons/${lessonId}/topics`)
+    fetch(`${url}/lessons/${lessonId}/topics`)
         .then(response => response.json());
 
 export const findTopic = (topicId) =>
-    fetch(`${url}/${nuid}/topics/${topicId}`, {
+    fetch(`${url}/topics/${topicId}`, {
         method: 'GET'
     })
         .then(response => response.json());
 
 export const updateTopic = (topicId, topic) =>
-    fetch(`${url}/${nuid}/topics/${topicId}`, {
+    fetch(`${url}/topics/${topicId}`, {
         method: 'PUT',
         body: JSON.stringify(topic),
         headers: {
@@ -32,7 +31,7 @@ export const updateTopic = (topicId, topic) =>
         .then(response => response.json());
 
 export const deleteTopic= (topicId) =>
-    fetch(`${url}/${nuid}/topics/${topicId}`, {
+    fetch(`${url}/topics/${topicId}`, {
         method: 'DELETE'
     })
         .then(response => response.json());
