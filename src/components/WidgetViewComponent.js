@@ -22,19 +22,19 @@ class WidgetViewComponent extends React.Component {
         switch (this.props.widget.type) {
             case 'HEADING': {
                 switch (this.props.widget.size) {
-                    case '1': {
+                    case 'H1': {
                         return <h1>{this.props.widget.text}</h1>
                     }
-                    case '2': {
+                    case 'H2': {
                         return <h2>{this.props.widget.text}</h2>
                     }
-                    case '3': {
+                    case 'H3': {
                         return <h3>{this.props.widget.text}</h3>
                     }
-                    case '4': {
+                    case 'H4': {
                         return <h4>{this.props.widget.text}</h4>
                     }
-                    case '5': {
+                    case 'H5': {
                         return <h5>{this.props.widget.text}</h5>
                     }
                     default:

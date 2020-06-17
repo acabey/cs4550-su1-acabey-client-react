@@ -16,14 +16,15 @@ class WidgetEditHeadingComponent extends WidgetEditAbstractComponent {
                 <div className={'row p-1'}>
                     <input className={'form-control'}
                            placeholder={'Heading text'}
-                           onChange={(e) => console.log(`Changed heading text value: ${e.target.value}`)}
+                           onChange={(e) => this.setState({updatedText: e.target.value})}
+                           value={this.state.updatedText}
                     />
                 </div>
 
                 <div className={'row p-1'}>
                     <select className="custom-select form-control"
-                            value={'H1'}
-                            onChange={() => console.log("Changed header type")}>
+                            value={this.state.updatedSize}
+                            onChange={(e) => this.setState({updatedSize: e.target.value})}>
                         <option value="H1">H1</option>
                         <option value="H2">H2</option>
                         <option value="H3">H3</option>
@@ -35,7 +36,8 @@ class WidgetEditHeadingComponent extends WidgetEditAbstractComponent {
                 <div className={'row p-1'}>
                     <input className={'form-control'}
                            placeholder={'Widget name'}
-                           onChange={(e) => console.log(`Changed widget name value: ${e.target.value}`)}
+                           value={this.state.updatedName}
+                           onChange={(e) => this.setState({updatedName: e.target.value})}
                     />
                 </div>
 

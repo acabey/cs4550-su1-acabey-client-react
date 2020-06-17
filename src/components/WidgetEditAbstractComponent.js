@@ -5,7 +5,6 @@ import {faArrowDown, faArrowUp, faTimes} from "@fortawesome/free-solid-svg-icons
 class WidgetEditAbstractComponent extends React.Component {
 
     state = {
-        updatedId: this.props.widget.id, // Unique identifier for this object
         updatedName: this.props.widget.name, // Optional name of the widget
         updatedType: this.props.widget.type, // Type of the widget, e.g., Heading, List, Paragraph, Image, YouTube, HTML, Link
         updatedWidgetOrder: this.props.widget.widgetOrder,//  Order with respect to widgets in the same list
@@ -17,7 +16,25 @@ class WidgetEditAbstractComponent extends React.Component {
         updatedCssClass: this.props.widget.cssClass, // CSS class implementing some CSS rule and transformations configured in some CSS rule
         updatedStyle: this.props.widget.style, // CSS transformations applied to the widget
         updatedValue: this.props.widget.value, // Some arbitrary initial value interpreted by the widget
-        updatedTopicId: this.props.widget.topicId,// Unique ID of parent topic
+        updatedTopicId: this.props.widget.topicId, // Unique ID of parent topic
+    };
+
+    updateWidget = () => {
+        this.props.updateWidget(this.props.widget.id,
+            {
+                name: this.state.updatedName,
+                type: this.state.updatedType,
+                widgetOrder: this.state.updatedWidgetOrder,
+                text: this.state.updatedText,
+                url: this.state.updatedUrl,
+                size: this.state.updatedSize,
+                width: this.state.updatedWidth,
+                height: this.state.updatedHeight,
+                cssClass: this.state.updatedCssClass,
+                style: this.state.updatedStyle,
+                value: this.state.updatedValue,
+                topicId: this.state.updatedTopicId,
+            })
     };
 
     widgetMetaRow = (
@@ -44,14 +61,15 @@ class WidgetEditAbstractComponent extends React.Component {
                         <FontAwesomeIcon icon={faArrowDown}/>
                     </button>
                     <div className={'d-inline-block mr-1'}>
-                        <select className="custom-select form-inline "
-                                value={this.props.widget.type}
-                                onChange={() => console.log("Changed widget type")}>
+                        <select className="custom-select form-inline"
+                                onChange={(e) => this.setState({updatedType: e.target.value})}
+                                value={this.state.updatedType}>
                             <option value="HEADING">Heading</option>
                             <option value="PARAGRAPH">Paragraph</option>
                         </select>
                     </div>
-                    <button className={'btn btn-primary d-inline mr-1'}>Save</button>
+                    <button className={'btn btn-primary d-inline mr-1'}
+                            onClick={this.updateWidget}>Save</button>
                     <button className={"btn btn-danger"}
                             onClick={() => this.props.deleteWidget(this.props.widget.id)}>
                         <FontAwesomeIcon icon={faTimes}/>
