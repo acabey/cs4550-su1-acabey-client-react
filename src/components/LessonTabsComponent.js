@@ -39,8 +39,9 @@ class LessonTabsComponent extends React.Component {
     };
 
     selectLesson = (lessonId) => {
-        this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${lessonId}`);
-        this.props.selectLesson(lessonId);
+        if (lessonId !== this.props.match.params.lessonId) {
+            this.props.history.push(`/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${lessonId}`);
+        }
     };
 
     render = () => (
@@ -50,7 +51,7 @@ class LessonTabsComponent extends React.Component {
                     <LessonTabItemComponent
                         lesson={lesson}
                         selectLesson={this.selectLesson}
-                        selectedLessonId={this.props.selectedLessonId}
+                        selectedLessonId={this.props.match.params.lessonId}
                         updateLesson={this.props.updateLesson}
                         deleteLesson={this.deleteLesson}
                         key={lesson._id}/>)

@@ -1,6 +1,5 @@
 const initialState = {
     lessons: [],
-    selectedLessonId: ''
 };
 
 const lessonReducer = (state=initialState, event) => {
@@ -31,11 +30,6 @@ const lessonReducer = (state=initialState, event) => {
             return {
                 ...state,
                 lessons: event.lessons
-            };
-        case "SELECT_LESSON":
-            return {
-                ...state,
-                selectedLessonId: event.lessonId
             };
         default:
             return state

@@ -48,12 +48,6 @@ const dispatchToPropertyMapper = (dispatch) => {
                     lessonId: lessonId
                 }))
         },
-        selectLesson: (lessonId) => {
-            dispatch({
-                type: "SELECT_LESSON",
-                lessonId: lessonId
-            })
-        }
     }
 };
 
