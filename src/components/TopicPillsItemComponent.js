@@ -14,9 +14,10 @@ class TopicPillsItemComponent extends React.Component {
             {
                 !this.state.isEditing &&
                 <div
-                    className={`nav-link ${this.props.selectedTopicId === this.props.topic.id && 'bg-primary'}`}
-                    onClick={() => this.props.selectTopic(this.props.topic.id)}>
-                    <strong>{this.props.topic.title}</strong>
+                    className={`nav-link ${this.props.selectedTopicId == this.props.topic.id && 'bg-primary'}`}>
+                    <strong onClick={() => this.props.selectTopic(this.props.topic.id)}>
+                        {this.props.topic.title}
+                    </strong>
 
                     <button
                         className="btn wbdv-topic-item-edit-btn"

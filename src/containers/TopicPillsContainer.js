@@ -48,12 +48,6 @@ const dispatchToPropertyMapper = (dispatch) => {
                     topicId: topicId
                 }))
         },
-        selectTopic: (topicId) => {
-            dispatch({
-                type: "SELECT_TOPIC",
-                topicId: topicId
-            })
-        }
     }
 };
 

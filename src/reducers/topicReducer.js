@@ -32,11 +32,6 @@ const topicReducer = (state=initialState, event) => {
                 ...state,
                 topics: event.topics
             };
-        case "SELECT_TOPIC":
-            return {
-                ...state,
-                selectedTopicId: event.topicId
-            };
         default:
             return state
     }

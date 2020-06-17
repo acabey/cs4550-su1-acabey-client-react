@@ -24,9 +24,16 @@ class TopicPillsComponent extends React.Component {
     };
 
     selectTopic = (topicId) => {
+        if (topicId !== this.props.match.params.topicId) {
+            this.props.history.push(
+                `/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${this.props.match.params.lessonId}/topics/${topicId}`);
+        }
+    };
+
+    deleteTopic = (topicId) => {
+        this.props.deleteTopic(topicId)
         this.props.history.push(
-            `/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${this.props.match.params.lessonId}/topics/${topicId}`);
-        this.props.selectTopic(topicId);
+            `/editor/${this.props.match.params.courseId}/modules/${this.props.match.params.moduleId}/lessons/${this.props.match.params.lessonId}`);
     };
 
     createTopic = () => {
@@ -46,9 +53,9 @@ class TopicPillsComponent extends React.Component {
                     <TopicPillsItemComponent
                         topic={topic}
                         selectTopic={this.selectTopic}
-                        selectedTopicId={this.props.selectedTopicId}
+                        selectedTopicId={this.props.match.params.topicId}
                         updateTopic={this.props.updateTopic}
-                        deleteTopic={this.props.deleteTopic}
+                        deleteTopic={this.deleteTopic}
                         key={topic.id}/>
                 )
             }
