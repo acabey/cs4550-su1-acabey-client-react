@@ -41,12 +41,15 @@ class WidgetListComponent extends React.Component {
             });
     };
 
+    sortWidgets = (widgets) => {
+        return widgets.sort((a, b) => a.widgetOrder === b.widgetOrder ? 0 : a.widgetOrder < b.widgetOrder ? 1 : -1)
+    };
+
     render = () => (
         <div className={'col-12 p-0 pr-2'}>
             {
-                // Save and preview items
+                // Preview items
                 <div className={'row justify-content-end pr-2 pb-2'}>
-                    <button className={'btn btn-primary d-inline mr-2'}>Save</button>
                     <div className="btn-group btn-group-toggle d-inline-block mr-4" data-toggle="buttons">
                         <label className="btn btn-secondary active">
                             <input type="radio" name="options" id="widgetEdit" autoComplete="off" checked/> Edit
@@ -58,8 +61,11 @@ class WidgetListComponent extends React.Component {
                 </div>
             }
             {
-                this.props.widgets.map((widget, i) =>
-                    <WidgetEditComponent widget={widget} key={widget._id}/>
+                this.sortWidgets(this.props.widgets).map((widget, i) =>
+                    <WidgetEditComponent widget={widget}
+                                         deleteWidget={this.props.deleteWidget}
+                                         updateWidget={this.props.updateWidget}
+                                         key={widget.id}/>
                 )
             }
             {
