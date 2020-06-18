@@ -13,10 +13,11 @@ class WidgetEditListComponent extends WidgetEditAbstractComponent {
                 <WidgetEditMetaRowComponent
                     name={this.state.name}
                     type={this.state.type}
+                    updateType={this.updateType}
                     incrementWidget={this.incrementWidget}
                     decrementWidget={this.decrementWidget}
                     updateWidget={this.updateWidget}
-                    updateType={this.updateType}/>
+                    deleteWidget={this.deleteWidget}/>
 
                 <div className={'row p-1'}>
                     <textarea className={'form-control'}

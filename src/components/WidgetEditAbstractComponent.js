@@ -1,4 +1,5 @@
 import React from "react";
+import WidgetEditMetaRowComponent from "./WidgetEditMetaRowComponent";
 
 class WidgetEditAbstractComponent extends React.Component {
 
@@ -40,6 +41,16 @@ class WidgetEditAbstractComponent extends React.Component {
         ...this.props.widget,
         widgetOrder: this.props.widget.widgetOrder + 1
     });
+
+    metaRow =
+        <WidgetEditMetaRowComponent
+            name={this.state.name}
+            type={this.state.type}
+            updateType={this.updateType}
+            incrementWidget={this.incrementWidget}
+            decrementWidget={this.decrementWidget}
+            updateWidget={this.updateWidget}
+            deleteWidget={this.deleteWidget}/>
 
 }
 
