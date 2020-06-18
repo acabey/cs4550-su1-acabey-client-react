@@ -66,6 +66,7 @@ class WidgetList extends React.Component {
                 </div>
             }
             {
+                this.props.widgets &&
                 this.sortWidgets(this.props.widgets).map((widget, i) =>
                     this.state.isPreview ?
                         <WidgetViewComponent widget={widget} key={widget.id}/>

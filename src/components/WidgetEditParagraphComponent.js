@@ -14,15 +14,15 @@ class WidgetEditParagraphComponent extends WidgetEditAbstractComponent {
                 <div className={'row p-1'}>
                     <input className={'form-control'}
                            placeholder={'Paragraph text'}
-                           onChange={(e) => this.setState({updatedText: e.target.value})}
-                           value={this.state.updatedText}/>
+                           onChange={(e) => this.setState({text: e.target.value})}
+                           value={this.state.text}/>
                 </div>
 
                 <div className={'row p-1'}>
                     <input className={'form-control'}
                            placeholder={'Widget name'}
-                           onChange={(e) => this.setState({updatedName: e.target.value})}
-                           value={this.state.updatedName}/>
+                           onChange={(e) => this.setState({name: e.target.value})}
+                           value={this.state.name}/>
                 </div>
 
                 <div className={'row p-1'}>

@@ -1,6 +1,7 @@
 import React from "react";
 import WidgetEditHeadingComponent from "./WidgetEditHeadingComponent";
 import WidgetEditParagraphComponent from "./WidgetEditParagraphComponent";
+import WidgetEditListComponent from "./WidgetEditListComponent";
 
 class WidgetEditComponent extends React.Component {
 
@@ -18,6 +19,12 @@ class WidgetEditComponent extends React.Component {
                 return <WidgetEditParagraphComponent widget={this.props.widget}
                                                      updateWidget={this.props.updateWidget}
                                                      deleteWidget={this.props.deleteWidget}/>
+            }
+
+            case 'LIST' : {
+                return <WidgetEditListComponent widget={this.props.widget}
+                                                updateWidget={this.props.updateWidget}
+                                                deleteWidget={this.props.deleteWidget}/>
             }
 
             default : {

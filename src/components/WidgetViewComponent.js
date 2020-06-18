@@ -46,6 +46,20 @@ class WidgetViewComponent extends React.Component {
                 return <p>{this.props.widget.text}</p>
             }
 
+
+            case 'LIST' : {
+                switch (this.props.widget.value) {
+                    case 'OL': {
+                        return  <ol>{this.props.widget.text.split('\n').map(listItem => <li>{listItem}</li>)}</ol>
+                    }
+                    case 'UL': {
+                        return  <ul>{this.props.widget.text.split('\n').map(listItem => <li>{listItem}</li>)}</ul>
+                    }
+                    default:
+                        return <span>Invalid List value: {this.props.widget.value}</span>
+                }
+            }
+
             default : {
                 return <div>Unknown Widget type {this.props.widget.type}</div>
             }

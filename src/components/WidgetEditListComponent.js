@@ -2,7 +2,7 @@ import React from "react";
 import WidgetViewComponent from "./WidgetViewComponent";
 import WidgetEditAbstractComponent from "./WidgetEditAbstractComponent";
 
-class WidgetEditHeadingComponent extends WidgetEditAbstractComponent {
+class WidgetEditListComponent extends WidgetEditAbstractComponent {
 
     render = () => (
         <div className={'col-12 border'}>
@@ -12,22 +12,18 @@ class WidgetEditHeadingComponent extends WidgetEditAbstractComponent {
                 {this.widgetMetaRow}
 
                 <div className={'row p-1'}>
-                    <input className={'form-control'}
-                           placeholder={'Heading text'}
-                           onChange={(e) => this.setState({text: e.target.value})}
-                           value={this.state.text}
-                    />
+                    <textarea className={'form-control'}
+                              placeholder={''}
+                              onChange={(e) => this.setState({updatedWidget: {text: e.target.value}})}
+                              value={this.state.text}/>
                 </div>
 
                 <div className={'row p-1'}>
                     <select className="custom-select form-control"
-                            value={this.state.size}
-                            onChange={(e) => this.setState({size: e.target.value})}>
-                        <option value="H1">H1</option>
-                        <option value="H2">H2</option>
-                        <option value="H3">H3</option>
-                        <option value="H4">H4</option>
-                        <option value="H5">H5</option>
+                            value={this.state.value}
+                            onChange={(e) => this.setState({value: e.target.value})}>
+                        <option value="OL">Ordered List</option>
+                        <option value="UL">Unordered List</option>
                     </select>
                 </div>
 
@@ -44,7 +40,7 @@ class WidgetEditHeadingComponent extends WidgetEditAbstractComponent {
                 </div>
 
                 <div className={'row p-1'}>
-                    <WidgetViewComponent widget={this.props.widget}/>
+                    <WidgetViewComponent widget={this.state}/>
                 </div>
 
             </div>
@@ -53,4 +49,4 @@ class WidgetEditHeadingComponent extends WidgetEditAbstractComponent {
 
 }
 
-export default WidgetEditHeadingComponent;
+export default WidgetEditListComponent;
