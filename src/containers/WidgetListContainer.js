@@ -18,7 +18,10 @@ const dispatchToPropertyMapper = (dispatch) => {
                 .then(widgetsForTopic => dispatch({
                     type: 'FIND_WIDGETS_FOR_TOPIC',
                     widgets: widgetsForTopic
-                }))
+                })).catch(error => dispatch({
+                    type: 'FIND_WIDGETS_FOR_TOPIC',
+                    widgets: []
+            }))
         },
         findAllWidgets: () => {
             WidgetService.findAllWidgets()
