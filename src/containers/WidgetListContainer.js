@@ -19,8 +19,8 @@ const dispatchToPropertyMapper = (dispatch) => {
                     type: 'FIND_WIDGETS_FOR_TOPIC',
                     widgets: widgetsForTopic
                 })).catch(error => dispatch({
-                    type: 'FIND_WIDGETS_FOR_TOPIC',
-                    widgets: []
+                type: 'FIND_WIDGETS_FOR_TOPIC',
+                widgets: []
             }))
         },
         findAllWidgets: () => {
@@ -31,11 +31,15 @@ const dispatchToPropertyMapper = (dispatch) => {
                 }))
         },
         updateWidget: (widgetId, newWidgetData) => {
+            newWidgetData.id = widgetId; // Ensure proper ID is set in the replacement
             WidgetService.updateWidget(widgetId, newWidgetData)
-                .then(updatedWidget => dispatch({
-                    type: 'UPDATE_WIDGET',
-                    updatedWidget: updatedWidget
-                }))
+                .then(didUpdate => {
+                    if (didUpdate)
+                        dispatch({
+                            type: 'UPDATE_WIDGET',
+                            updatedWidget: newWidgetData
+                        })
+                })
         },
         createWidget: (topicId, newWidget) => {
             WidgetService.createWidget(topicId, newWidget)
