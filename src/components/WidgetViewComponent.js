@@ -60,6 +60,10 @@ class WidgetViewComponent extends React.Component {
                 }
             }
 
+            case 'IMAGE' : {
+                return <img src={this.props.widget.url} alt={this.props.widget.text}/>
+            }
+
             default : {
                 return <div>Unknown Widget type {this.props.widget.type}</div>
             }

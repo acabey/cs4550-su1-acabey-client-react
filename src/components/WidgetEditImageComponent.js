@@ -20,9 +20,9 @@ class WidgetEditImageComponent extends WidgetEditAbstractComponent {
 
                 <div className={'row p-1'}>
                     <input className={'form-control'}
-                           placeholder={'Image text'}
-                           onChange={(e) => this.setState({text: e.target.value})}
-                           value={this.state.text}/>
+                           placeholder={'Image url'}
+                           onChange={(e) => this.setState({url: e.target.value})}
+                           value={this.state.url}/>
                 </div>
 
                 <div className={'row p-1'}>
