@@ -1,6 +1,4 @@
 import React from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowDown, faArrowUp, faTimes} from "@fortawesome/free-solid-svg-icons";
 
 class WidgetEditAbstractComponent extends React.Component {
 
@@ -24,52 +22,24 @@ class WidgetEditAbstractComponent extends React.Component {
         this.props.updateWidget(this.props.widget.id, this.state)
     };
 
-    widgetMetaRow = (
-        <div className={"row p-1"}>
-            <div className={"col-4"}>
-                <h3>{this.state.name}</h3>
-            </div>
+    updateType = (widgetType) => {
+        this.props.updateWidget(this.props.widget.id, {
+            ...this.props.widget,
+            type: widgetType
+        })
+    };
 
-            <div className={"col-8"}>
-                <div className={'row justify-content-end'}>
-                    <button className={"btn btn-warning mr-1"}
-                            onClick={() => this.props.updateWidget(this.props.widget.id, {
-                                ...this.props.widget,
-                                widgetOrder: this.props.widget.widgetOrder + 1
-                            })}>
-                        <FontAwesomeIcon icon={faArrowUp}/>
-                    </button>
+    deleteWidget = () => this.props.deleteWidget(this.props.widget.id);
 
-                    <button className={"btn btn-warning mr-1"}
-                            onClick={() => this.props.updateWidget(this.props.widget.id, {
-                                ...this.props.widget,
-                                widgetOrder: this.props.widget.widgetOrder - 1
-                            })}>
-                        <FontAwesomeIcon icon={faArrowDown}/>
-                    </button>
-                    <div className={'d-inline-block mr-1'}>
-                        <select className="custom-select form-inline"
-                                onChange={(e) => this.props.updateWidget(this.props.widget.id, {
-                                    ...this.props.widget,
-                                    type: e.target.value
-                                })}
-                                value={this.state.type}>
-                            <option value="HEADING">Heading</option>
-                            <option value="PARAGRAPH">Paragraph</option>
-                            <option value="LIST">List</option>
-                            <option value="IMAGE">Image</option>
-                        </select>
-                    </div>
-                    <button className={'btn btn-primary d-inline mr-1'}
-                            onClick={this.updateWidget}>Save</button>
-                    <button className={"btn btn-danger"}
-                            onClick={() => this.props.deleteWidget(this.props.widget.id)}>
-                        <FontAwesomeIcon icon={faTimes}/>
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
+    decrementWidget = () => this.props.updateWidget(this.props.widget.id, {
+        ...this.props.widget,
+        widgetOrder: this.props.widget.widgetOrder - 1
+    });
+
+    incrementWidget = () => this.props.updateWidget(this.props.widget.id, {
+        ...this.props.widget,
+        widgetOrder: this.props.widget.widgetOrder + 1
+    });
 
 }
 

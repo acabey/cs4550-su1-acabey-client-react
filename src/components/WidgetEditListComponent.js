@@ -1,6 +1,7 @@
 import React from "react";
 import WidgetViewComponent from "./WidgetViewComponent";
 import WidgetEditAbstractComponent from "./WidgetEditAbstractComponent";
+import WidgetEditMetaRowComponent from "./WidgetEditMetaRowComponent";
 
 class WidgetEditListComponent extends WidgetEditAbstractComponent {
 
@@ -9,12 +10,18 @@ class WidgetEditListComponent extends WidgetEditAbstractComponent {
 
             <div className={'m-2'}>
 
-                {this.widgetMetaRow}
+                <WidgetEditMetaRowComponent
+                    name={this.state.name}
+                    type={this.state.type}
+                    incrementWidget={this.incrementWidget}
+                    decrementWidget={this.decrementWidget}
+                    updateWidget={this.updateWidget}
+                    updateType={this.updateType}/>
 
                 <div className={'row p-1'}>
                     <textarea className={'form-control'}
                               placeholder={''}
-                              onChange={(e) => this.setState({updatedWidget: {text: e.target.value}})}
+                              onChange={(e) => this.setState({text: e.target.value})}
                               value={this.state.text}/>
                 </div>
 
